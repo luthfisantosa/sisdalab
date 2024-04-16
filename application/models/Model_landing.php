@@ -8,10 +8,10 @@ class Model_landing extends CI_Model {
     }
 
 	public function verify_user($nik, $password) {
-        $query = $this->db->get_where('user', array('NIK' => $nik));
+        $query = $this->db->get_where('user', array('nik' => $nik));
         $user = $query->row();
 
-        if ($user && password_verify($password, $user->password)) {
+        if ($user && $user->password === $password) {
             return $user;
         } else {
             return false;

@@ -25,12 +25,22 @@ class Landing extends CI_Controller {
 
         if ($user) {
             // Set user session or redirect to dashboard
-            // $this->session->set_userdata('user_id', $user->id);
-            redirect(base_url('Home'));
+            $this->session->set_userdata('user_id', $user->NIK);
+            $this->session->set_userdata('name', $user->nama);
+            $this->session->set_flashdata('notif', 'login success');
+            redirect(base_url('Landing/Home'));
         } else {
             // Invalid credentials, redirect back to login page
-            redirect(base_url());
+            $this->session->set_flashdata('notif', 'login Failed'.$password);
+            redirect(base_url('Landing/index'));
         }
+	}
+
+	public function logout()
+	{
+		$this->session->unset_userdata('user_id');
+		$this->session->unset_userdata('name');
+        redirect(base_url('Landing/index'));
 	}
 
 	public function Home()
