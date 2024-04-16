@@ -10,28 +10,29 @@ class Landing extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = "Login";
+		$data['title'] = "Welcome to SISDALAB | Login";
 		$this->load->view('template/assets', $data);
 		$this->load->view('landing', $data);
-		$this->load->view('template/footer');
+		// $this->load->view('template/footer');
 	}
 
 	public function Login()
 	{
-		$nik = $this->input->post('nik');
+		$username = $this->input->post('username');
 		$password = md5($this->input->post('password'));
 
-		$user = $this->Model_landing->verify_user($nik, $password);
+		$user = $this->Model_landing->verify_user($username, $password);
 
         if ($user) {
             // Set user session or redirect to dashboard
-            $this->session->set_userdata('user_id', $user->NIK);
+            $this->session->set_userdata('user_id', $user->username);
             $this->session->set_userdata('name', $user->nama);
+            $this->session->set_userdata('status', $user->status);
             $this->session->set_flashdata('notif', 'login success');
             redirect(base_url('Landing/Home'));
         } else {
             // Invalid credentials, redirect back to login page
-            $this->session->set_flashdata('notif', 'login Failed'.$password);
+            $this->session->set_flashdata('notif', 'Username atau Password Salah');
             redirect(base_url('Landing/index'));
         }
 	}
@@ -40,14 +41,19 @@ class Landing extends CI_Controller {
 	{
 		$this->session->unset_userdata('user_id');
 		$this->session->unset_userdata('name');
+		$this->session->unset_userdata('status');
         redirect(base_url('Landing/index'));
 	}
 
 	public function Home()
 	{
-		$data['title'] = "Home";
-		$this->load->view('template/assets', $data);
-		$this->load->view('template/header', $data);
-		$this->load->view('template/footer');
+		if($this->session->userdata('user_id')!=null){
+			$data['title'] = "Home";
+			$this->load->view('template/assets', $data);
+			$this->load->view('template/header', $data);
+			$this->load->view('template/footer');
+		}else{
+			redirect(base_url('Landing/index'));
+		}		
 	}
 }

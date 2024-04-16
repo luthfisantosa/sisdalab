@@ -7,8 +7,8 @@ class Model_landing extends CI_Model {
         parent::__construct();
     }
 
-	public function verify_user($nik, $password) {
-        $query = $this->db->get_where('user', array('nik' => $nik));
+	public function verify_user($username, $password) {
+        $query = $this->db->get_where('user', array('username' => $username));
         $user = $query->row();
 
         if ($user && $user->password === $password) {

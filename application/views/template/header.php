@@ -16,20 +16,40 @@
 			<!--navigation-->
 			<ul class="metismenu" id="menu">
 				<li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon icon-color-1"><i class="bx bx-home-alt"></i>
+					<a href="<?= base_url('All_database/'); ?>">
+						<div class="parent-icon icon-color-2"><i class="bx bxs-spreadsheet"></i>
 						</div>
-						<div class="menu-title">Dashboard</div>
+						<div class="menu-title">All Database</div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon icon-color-1"><i class="bx bxs-report"></i>
+						</div>
+						<div class="menu-title">Laporan Kegiatan</div>
 					</a>
 					<ul>
-						<li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>Analytics</a>
+						<li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>Form</a>
 						</li>
-						<li> <a href="index2.html"><i class="bx bx-right-arrow-alt"></i>Sales</a>
+						<li> <a href="index2.html"><i class="bx bx-right-arrow-alt"></i>Database</a>
 						</li>
 					</ul>
 				</li>
-				
+				<li>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon icon-color-1"><i class="bx bxs-report"></i>
+						</div>
+						<div class="menu-title">Laporan PAD</div>
+					</a>
+					<ul>
+						<li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>Form</a>
+						</li>
+						<li> <a href="index2.html"><i class="bx bx-right-arrow-alt"></i>Database</a>
+						</li>
+					</ul>
+				</li>
 			</ul>
+
 			<!--end navigation-->
 		</div>
 		<!--end sidebar-wrapper-->
@@ -43,9 +63,9 @@
 								<div class="media user-box align-items-center">
 									<div class="media-body user-info">
 										<p class="user-name mb-0"><?= $this->session->userdata('name'); ?></p>
-										<p class="designattion mb-0">Available</p>
+										<p class="designattion mb-0"><?= $this->session->userdata('status'); ?></p>
 									</div>
-									<img src="https://via.placeholder.com/110x110" class="user-img" alt="user avatar">
+									<img src="<?= base_url('assets/images/user.png'); ?>" class="user-img" alt="user avatar">
 								</div>
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">	
@@ -59,8 +79,3 @@
 			</nav>
 		</header>
 		<!--end header-->
-
-
-
-		<!--page-wrapper-->
-	</div>

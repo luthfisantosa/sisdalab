@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title><?= $title ?></title>
 	<!--favicon-->
-	<link rel="icon" href="<?= base_url(); ?>assets/images/favicon-32x32.png" type="image/png" >
+	<link rel="icon" href="<?= base_url(); ?>assets/images/icons/pupr-32x32.png" type="image/png" >
 	<!--plugins-->
 	<link href="<?= base_url(); ?>assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" >
 	<link href="<?= base_url(); ?>assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" >
@@ -23,4 +23,6 @@
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/css/app.css" >
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/css/dark-header.css" >
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/css/dark-theme.css" >
+	<!-- sweet alert 2 -->
+	<script src="<?= base_url(); ?>assets/plugins/sweet-alert2.min.js"></script>
 </head>
