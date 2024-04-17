@@ -56,4 +56,18 @@ class Landing extends CI_Controller {
 			redirect(base_url('Landing/index'));
 		}		
 	}
+
+	public function about()
+	{
+		if($this->session->userdata('user_id')!=null){
+			$data['title'] = "Tentang SISDALAB";
+			$data['card_title'] = "Tentang SISDALAB";
+			$this->load->view('template/assets', $data);
+			$this->load->view('template/header', $data);
+			$this->load->view('about', $data);
+			$this->load->view('template/footer');
+		}else{
+			redirect(base_url('Landing/index'));
+		}
+	}
 }

@@ -25,4 +25,13 @@
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/css/dark-theme.css" >
 	<!-- sweet alert 2 -->
 	<script src="<?= base_url(); ?>assets/plugins/sweet-alert2.min.js"></script>
+	<!--Data Tables -->
+	<link href="<?= base_url(); ?>assets/plugins/datatable/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
+	<link href="<?= base_url(); ?>assets/plugins/datatable/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css">
+
+	<!--Data Tables js-->
+	<script src="<?= base_url(); ?>assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+
+	<!--Jquery-->
+	<script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
 </head>

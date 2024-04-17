@@ -48,8 +48,14 @@
 						</li>
 					</ul>
 				</li>
+				<li>
+					<a href="<?= base_url('Landing/about'); ?>">
+						<div class="parent-icon icon-color-2"><i class="bx bxs-spreadsheet"></i>
+						</div>
+						<div class="menu-title">About</div>
+					</a>
+				</li>
 			</ul>
-
 			<!--end navigation-->
 		</div>
 		<!--end sidebar-wrapper-->
