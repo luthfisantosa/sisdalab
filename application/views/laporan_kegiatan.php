@@ -4,7 +4,9 @@
 	<div class="page-content-wrapper">
 		<div class="page-content">
 			<div class="card">
-				<div class="card-header"><?= $card_title; ?></div>
+				<div class="card-header">
+					<?= $card_title; ?>
+				</div>
 				<div class="card-body">
 					<div class="table-responsive">
 						<table id="table_kegiatan" class="table table-bordered display" style="width:100%">
@@ -25,21 +27,45 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php foreach($datatables as $dt): ?>
-								<tr>
-									<td> <?= $dt->no_reg; ?> </td>
-									<td> <?= $dt->tanggal_dibuat; ?> </td>
-									<td> <?= $dt->no_laporan; ?> </td>
-									<td> <?= $dt->kode_rekening; ?> </td>
-									<td> <?= $dt->nama_kegiatan; ?> </td>
-									<td> <?= $dt->cv; ?> </td>
-									<td> <?= $dt->jenis_pekerjaan; ?> </td>
-									<td> <?= $dt->nama_pemborong; ?> </td>
-									<td> <?= $dt->wilayah; ?> </td>
-									<td> <?= $dt->abt; ?> </td>
-									<td> <?= $dt->date_created; ?> </td>
-									<td> <?= $dt->created_by; ?> </td>
-								</tr>
+								<?php foreach ($datatables as $dt): ?>
+									<tr>
+										<td>
+											<?= $dt->no_reg; ?>
+										</td>
+										<td>
+											<?= $dt->tanggal_dibuat; ?>
+										</td>
+										<td>
+											<?= $dt->no_laporan; ?>
+										</td>
+										<td>
+											<?= $dt->kode_rekening; ?>
+										</td>
+										<td>
+											<?= $dt->nama_kegiatan; ?>
+										</td>
+										<td>
+											<?= $dt->cv; ?>
+										</td>
+										<td>
+											<?= $dt->jenis_pekerjaan; ?>
+										</td>
+										<td>
+											<?= $dt->nama_pemborong; ?>
+										</td>
+										<td>
+											<?= $dt->wilayah; ?>
+										</td>
+										<td>
+											<?= $dt->abt; ?>
+										</td>
+										<td>
+											<?= $dt->date_created; ?>
+										</td>
+										<td>
+											<?= $dt->created_by; ?>
+										</td>
+									</tr>
 								<?php endforeach; ?>
 							</tbody>
 						</table>
@@ -54,19 +80,26 @@
 <script>
 	$(document).ready(function () {
 		//Default data table
-		$('#table_kegiatan').DataTable();
+		$('#table_kegiatan').DataTable({
+			dom: 'Bfrtip', // Add buttons to the DOM
+			buttons: [
+				'pdf',
+				'print' // Add print button
+			]
+		});
+
 
 		$('.currency').inputmask({
-	        alias: 'currency',
-	        rightAlign: false,
-	        radixPoint: '.',
-	        autoGroup: true,
-	        groupSeparator: ',',
-	        digits: 2,
-	        digitsOptional: false,
-	        prefix: '$ ',
-	        placeholder: '0',
-	        removeMaskOnSubmit: true
-	    });
+			alias: 'currency',
+			rightAlign: false,
+			radixPoint: '.',
+			autoGroup: true,
+			groupSeparator: ',',
+			digits: 2,
+			digitsOptional: false,
+			prefix: '$ ',
+			placeholder: '0',
+			removeMaskOnSubmit: true
+		});
 	});
 </script>

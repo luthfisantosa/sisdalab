@@ -8,6 +8,26 @@ class Database_kegiatan extends CI_Controller {
         $this->load->model('Model_kegiatan');
     }
 
+	public function form_laporan_kegiatan()
+	{
+		if($this->session->userdata('user_id')!=null){
+			// Example WHERE condition
+	        $where_condition = "";
+	        $table = "laporan_kegiatan";
+
+	        $data['datatables'] = $this->Model_kegiatan->get_data($table, $where_condition); // Get users with the WHERE condition
+
+			$data['title'] = "Form Laporan Hasil Kegiatan | SISDALAB";
+			$data['card_title'] = "Form Laporan Hasil Kegiatan";
+			$this->load->view('template/assets', $data);
+			$this->load->view('template/header', $data);
+			$this->load->view('form_laporan_kegiatan', $data);
+			$this->load->view('template/footer');
+		}else{
+			redirect(base_url('Landing/index'));
+		}
+	}
+
 	public function laporan_kegiatan()
 	{
 		if($this->session->userdata('user_id')!=null){
@@ -27,6 +47,7 @@ class Database_kegiatan extends CI_Controller {
 			redirect(base_url('Landing/index'));
 		}
 	}
+	
 
 	
 }

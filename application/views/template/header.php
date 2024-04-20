@@ -29,7 +29,7 @@
 						<div class="menu-title">Laporan Kegiatan</div>
 					</a>
 					<ul>
-						<li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>Form</a>
+						<li> <a href="<?= base_url('Database_kegiatan/form_laporan_kegiatan'); ?>"><i class="bx bx-right-arrow-alt"></i>Form</a>
 						</li>
 						<li> <a href="<?= base_url('Database_kegiatan/laporan_kegiatan'); ?>"><i class="bx bx-right-arrow-alt"></i>Database</a>
 						</li>
