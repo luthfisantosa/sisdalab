@@ -84,7 +84,9 @@
 <script>
 	$(document).ready(function () {
 		//Default data table
-		$('#table_pad').DataTable();
+		$('#table_pad').DataTable({
+			autoWidth: false;
+		});
 
 		$('.currency').inputmask({
 	        alias: 'currency',
