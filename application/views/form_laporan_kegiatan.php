@@ -8,66 +8,68 @@
                     <?= $card_title; ?>
                 </div>
                 <div class="card-body">
-                    <form action="#" method="POST">
+                    <form action="<?= base_url('Database_kegiatan/form_submit'); ?>" method="POST">
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="form-group mt-1">
-                                    <label>Tanggal</label>
-                                    <input type="date" name="tanggal" id="_tanggal" class="form-control form-control-sm"
-                                        placeholder="tanggal" value="" />
+                                    <label>Tanggal</label><small class="text-danger">*</small>
+                                    <input type="text" name="tanggal_dibuat" id="_tanggal" class="form-control form-control-sm" placeholder="tanggal" value="" required />
                                 </div>
                                 <div class="form-group mt-1">
-                                    <label>No Registrasi</label>
-                                    <input type="text" name="no_registrasi" id="_no_registrasi" class="form-control form-control-sm" placeholder="Nomor registrasi" value="" />
+                                    <label>No Registrasi</label><small class="text-danger">*</small>
+                                    <input type="text" name="no_registrasi" id="_no_registrasi" class="form-control form-control-sm" placeholder="Nomor registrasi" value="<?= $last_num; ?>" readonly />
                                 </div>
                                 <div class="form-group mt-1">
-                                    <label>No Laporan</label>
-                                    <input type="text" name="no_laporan" id="_no_laporan" class="form-control form-control-sm" placeholder="Nomor laporan" value="" />
+                                    <label>No Laporan</label><small class="text-danger">*</small>
+                                    <input type="text" name="no_laporan" id="_no_laporan" class="form-control form-control-sm" placeholder="Nomor laporan" value="600.2.14.2" />
                                 </div>
                                 <div class="form-group mt-1">
-                                    <label>Wilayah</label>
+                                    <label>Wilayah</label><small class="text-danger">*</small>
                                     <select name="wilayah" id="_wilayah" class="form-control form-control-sm">
                                         <option value="" selected>-- Select --</option>
-                                        <option value="cikampek">Cikampek</option>
+                                        <option value="karawang">Karawang</option>
+                                        <option value="karawang">Cikampek</option>
+                                        <option value="telaga sari">Telaga sari</option>
+                                        <option value="rengasdengklok">Rengasdengklok</option>
                                     </select>
                                 </div>
                                 <div class="form-group mt-1">
-                                    <label>ABT/Non ABT</label>
+                                    <label>ABT/Non ABT</label><small class="text-danger">*</small>
                                     <select name="abt" id="_abt" class="form-control form-control-sm">
                                         <option value="abt">ABT</option>
-                                        <option value="non-abt">Non ABT</option>
+                                        <option value="non-abt" selected>Non ABT</option>
                                     </select>
                                 </div>
                                 <div class="form-group mt-1">
-                                    <label>Kode Rekening</label>
-                                    <input type="text" name="kode_rekening" id="_kode_rekening" class="form-control form-control-sm" placeholder="Kode Rekening" value="" />
-                                </div>
-                                <div class="form-group mt-1">
-                                    <label>Kegiatan</label>
-                                    <input type="text" name="kegiatan" id="_kegiatan" class="form-control form-control-sm" placeholder="kegiatan" value="" />
-                                </div>
-                                <div class="form-group mt-1">
-                                    <label>Lokasi</label>
-                                    <input type="text" name="lokasi" id="_lokasi" class="form-control form-control-sm" placeholder="lokasi" value="" />
-                                </div>
-                                <div class="form-group mt-1">
-                                    <label>CV/PT</label>
-                                    <input type="text" name="cv" id="_cv" class="form-control form-control-sm" placeholder="cv" value="" />
-                                </div>
-                                <div class="form-group mt-1">
-                                    <label>Pemborong</label>
-                                    <input type="text" name="pemborong" id="_pemborong" class="form-control form-control-sm" placeholder="pemborong" value="" />
-                                </div>
-                                <div class="form-group mt-1">
-                                    <label>Jenis Pekerjaan</label>
-                                    <input type="text" name="jenis_pekerjaan" id="_jenis_pekerjaan" class="form-control form-control-sm" placeholder="jenis pekerjaan" value=""/>
-                                </div>
-                                <div class="form-group mt-1">
-                                    <label>Tipe</label>
-                                    <select name="tipe" id="_tipe" class="form-control form-control-sm">
+                                    <label>Tipe</label><small class="text-danger">*</small>
+                                    <select name="tipe_pekerjaan" id="_tipe" class="form-control form-control-sm">
                                         <option value="swasta">Swasta</option>
-                                        <option value="dinas">Dinas</option>
+                                        <option value="dinas" selected>Dinas</option>
                                     </select>
+                                </div>
+                                <div class="form-group mt-1">
+                                    <label>Kode Rekening</label><small class="text-danger">*</small>
+                                    <input type="text" name="kode_rekening" id="_kode_rekening" class="form-control form-control-sm" placeholder="Kode Rekening" value="" required />
+                                </div>
+                                <div class="form-group mt-1">
+                                    <label>Nama Kegiatan</label><small class="text-danger">*</small>
+                                    <input type="text" name="nama_kegiatan" id="_kegiatan" class="form-control form-control-sm" placeholder="kegiatan" value="" required />
+                                </div>
+                                <div class="form-group mt-1">
+                                    <label>Nama Lokasi</label><small class="text-danger">*</small>
+                                    <input type="text" name="nama_lokasi" id="_lokasi" class="form-control form-control-sm" placeholder="lokasi" value="" required />
+                                </div>
+                                <div class="form-group mt-1">
+                                    <label>CV/PT</label><small class="text-danger">*</small>
+                                    <input type="text" name="cv" id="_cv" class="form-control form-control-sm" placeholder="cv" value="" required />
+                                </div>
+                                <div class="form-group mt-1">
+                                    <label>Pemborong</label><small class="text-danger">*</small>
+                                    <input type="text" name="nama_pemborong" id="_pemborong" class="form-control form-control-sm" placeholder="pemborong" value="" required />
+                                </div>
+                                <div class="form-group mt-1">
+                                    <label>Jenis Pekerjaan</label><small class="text-danger">*</small>
+                                    <input type="text" name="jenis_pekerjaan" id="_jenis_pekerjaan" class="form-control form-control-sm" placeholder="jenis pekerjaan" value="" required />
                                 </div>
                                 <div class="form-group mt-1">
                                     <input type="submit" id="_submit" class="btn btn-sm btn-primary float-right" value="Simpan" />
@@ -83,12 +85,49 @@
 
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
+        // Get current date
+        var currentDate = new Date();
 
-        // Get the current date in the format yyyy-mm-dd
-        const currentDate = new Date().toISOString().split('T')[0];
+        // Format date as "d/m/yyyy"
+        var day = currentDate.getDate();
+        var month = currentDate.getMonth() + 1; // Month is zero-based
+        var year = currentDate.getFullYear();
+
+        // Add leading zeros if necessary
+        if (day < 10) {
+            day = '0' + day;
+        }
+        if (month < 10) {
+            month = '0' + month;
+        }
+        // Construct formatted date string
+        var formattedDate = day + '/' + month + '/' + year;
         // Set the value of the input field to the current date
-        document.getElementById('_tanggal').value = currentDate;
+        document.getElementById('_tanggal').value = formattedDate;
+
+        $('#_tipe').on('change', function() {
+            var tipe = $('#_tipe').val();
+            var no_registrasi = $('#_no_registrasi').val();
+            if (tipe == 'dinas') {
+                $('#_kode_rekening').val('');
+            } else if (tipe == 'swasta') {
+                $('#_kode_rekening').val('sw.' + no_registrasi);
+            }
+        });
+
+        $('#_submit').on('click', function(event) {
+            var wilayah = $('#_wilayah').val();
+
+            if (wilayah == "") {
+                Swal.fire({
+                    title: "Maaf!",
+                    text: "Form Wilayah harap untuk diisi!",
+                    icon: "error"
+                });
+                event.preventDefault();
+            }
+        });
 
         $('.currency').inputmask({
             alias: 'currency',

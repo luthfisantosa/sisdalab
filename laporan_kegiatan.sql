@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2024 at 02:55 PM
+-- Generation Time: Apr 20, 2024 at 02:43 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -956,66 +956,6 @@ INSERT INTO `laporan_kegiatan` (`id_kegiatan`, `no_reg`, `tanggal_dibuat`, `no_l
 (900, 901, '30 Desember ', '620.04', '10.2.01.08.3.326.ABT', 'Peningkatan Jalan', 'Jalan Poros Dusun Peundeuy RT. 27/10 Desa Kondangjaya Kecamatan Karawang Timur', 'CV. NURJANAH ILLAHI', 'R + H', '', 'H. Abas', 'Karawang', '(ABT)', 'admin', '19/4/2024'),
 (901, 902, '30 Desember ', '620.04', '10.2.01.08.3.263.ABT', 'Peniingkatan Jalan', 'Jalan Grand Lucky RT. 003 RW. 004 Dusun Pawarengan Desa Dawuan Timur Kecamatan Cikampek', 'CV. CIWULAN BANGKIT', 'H', '', 'Beling', 'Cikampek', '(ABT)', 'admin', '19/4/2024');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `pad`
---
-
-CREATE TABLE `pad` (
-  `id_pad` int(11) NOT NULL,
-  `no_pad` int(11) NOT NULL,
-  `tanggal` varchar(12) NOT NULL,
-  `rekening` varchar(100) NOT NULL,
-  `kegiatan` varchar(100) NOT NULL,
-  `penyedia_jasa` varchar(100) NOT NULL,
-  `jenis_pengujian` varchar(100) NOT NULL,
-  `uraian_pengujian` varchar(100) NOT NULL,
-  `jumlah` int(11) NOT NULL,
-  `satuan` varchar(100) NOT NULL,
-  `harga` varchar(100) NOT NULL,
-  `jumlah_rp` int(11) NOT NULL,
-  `total` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `pad`
---
-
-INSERT INTO `pad` (`id_pad`, `no_pad`, `tanggal`, `rekening`, `kegiatan`, `penyedia_jasa`, `jenis_pengujian`, `uraian_pengujian`, `jumlah`, `satuan`, `harga`, `jumlah_rp`, `total`) VALUES
-(2, 1, '17/02/2024', '027.2/077/10.2.01.16.1/KPA-JLN PUPR/2022', 'Test CBR dan Kepadatan Jembatan', 'CV. CIAMPEA JAYA (Andri)', 'Pekerjaan CBR dan Kepadatan', 'Pemeriksaan Test CBR', 2, 'Titik', '400,000', 800000, 900000),
-(3, 1, '17/02/2024', '027.2/077/10.2.01.16.1/KPA-JLN PUPR/2022', 'Test CBR dan Kepadatan Jembatan', 'CV. CIAMPEA JAYA (Andri)', 'Pekerjaan CBR dan Kepadatan', 'Pemeriksaan Test Kepadatan', 2, 'Kali', '50,000', 100000, 900000),
-(4, 2, '17/02/2024', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM (Nizar)', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Bahan', 1, 'Sample', '300,000', 300000, 875000),
-(5, 2, '17/02/2024', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM (Nizar)', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Slump', 1, 'Kali', '50,000', 50000, 875000),
-(6, 2, '17/02/2024', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM (Nizar)', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Kuat Tekan Beton', 3, 'Buah', '25,000', 75000, 875000),
-(7, 2, '17/02/2024', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM (Nizar)', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Coredrill', 3, 'Titik', '150,000', 450000, 875000),
-(8, 3, '17/02/2024', '', 'Proyek Pabrik Katalis Cikampek (Test CBR)', 'PT. WIJAYA KARYA (Ganang)', 'Pekerjaan CBR', 'Pemeriksaan Test CBR', 3, 'Titik', '400,000', 1200000, 1200000),
-(9, 4, '17/02/2024', '', 'Test Kubus Beton Lokasi Padalarang - Cirata', 'PT. INDISI (Rahman)', 'Pekerjaan Test Kubus Beton', 'Pemeriksaan Kuat Tekan Beton', 200, 'Sample', '7,500', 1500000, 1500000),
-(10, 5, '17/02/2024', '', 'Jalan Proyek Pabrik PT Nipro Indonesia Jaya', 'CV. FAJAR MANDIRI (Endang)', 'Pekerjaan Test Coredrill', 'Pekerjaan Test Coredrill', 2, 'Titik', '150,000', 300000, 300000);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `id_user` int(11) NOT NULL,
-  `NIK` varchar(12) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `bagian` varchar(12) NOT NULL,
-  `password` varchar(200) NOT NULL,
-  `status` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id_user`, `NIK`, `username`, `nama`, `bagian`, `password`, `status`) VALUES
-(1, '123', 'admin', 'admin', 'admin', '202cb962ac59075b964b07152d234b70', 'aktif');
-
 --
 -- Indexes for dumped tables
 --
@@ -1027,18 +967,6 @@ ALTER TABLE `laporan_kegiatan`
   ADD PRIMARY KEY (`id_kegiatan`);
 
 --
--- Indexes for table `pad`
---
-ALTER TABLE `pad`
-  ADD PRIMARY KEY (`id_pad`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -1047,18 +975,6 @@ ALTER TABLE `user`
 --
 ALTER TABLE `laporan_kegiatan`
   MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=902;
-
---
--- AUTO_INCREMENT for table `pad`
---
-ALTER TABLE `pad`
-  MODIFY `id_pad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
