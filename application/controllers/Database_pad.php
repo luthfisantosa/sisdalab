@@ -13,6 +13,24 @@ class Database_pad extends CI_Controller {
 		$this->load->view('errors/error_404');
 	}
 
+	public function Form_pad()
+	{
+		if($this->session->userdata('user_id')!=null){
+			// Example WHERE condition
+	        $where_condition = "";
+	        $table = "pad";
+
+			$data['title'] = "Form PAD | SISDALAB";
+			$data['card_title'] = "Form PAD";
+			$this->load->view('template/assets', $data);
+			$this->load->view('template/header', $data);
+			$this->load->view('form_pad', $data);
+			$this->load->view('template/footer');
+		}else{
+			redirect(base_url('Landing/index'));
+		}
+	}
+
 	public function DB_PAD()
 	{
 		if($this->session->userdata('user_id')!=null){

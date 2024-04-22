@@ -85,7 +85,6 @@
 	$(document).ready(function () {
 		//Default data table
 		$('#table_pad').DataTable({
-			autoWidth: false;
 		});
 
 		$('.currency').inputmask({
