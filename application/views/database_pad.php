@@ -18,9 +18,9 @@
 									<th>Jenis Pengujian</th>
 									<th>Jumlah</th>
 									<th>Satuan</th>
-									<th width="200%">Harga</th>
+									<th width="200%">Harga Satuan</th>
 									<th>Jumlah (Rp)</th>
-									<th>Total</th>
+									<th>Total dari Jumlah</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -29,42 +29,42 @@
 								<tr>
 									<?php 
 										if($pre == null){
-											echo "<th>".$dt->no_pad."</td>";
-											echo "<th>".$dt->tanggal."</td>";
-											echo "<th>".$dt->rekening."</td>";
-											echo "<th>".$dt->kegiatan."</td>";
-											echo "<th>".$dt->penyedia_jasa."</td>";
-											echo "<th>".$dt->jenis_pengujian."</td>";
-											echo "<th>".$dt->jumlah."</td>";
-											echo "<th>".$dt->satuan."</td>";
-											echo "<th>Rp.<span class='float-right currency'>".$dt->harga."</span></td>";
-											echo "<th>Rp.<span class='float-right currency'>".$dt->jumlah_rp."</span></td>";
-											echo "<th>Rp.<span class='float-right currency'><b>".$dt->total."</span></b></td>";
+											echo "<td>".$dt->no_pad."</td>";
+											echo "<td>".$dt->tanggal."</td>";
+											echo "<td>".$dt->rekening."</td>";
+											echo "<td>".$dt->kegiatan."</td>";
+											echo "<td>".$dt->penyedia_jasa."</td>";
+											echo "<td>".$dt->jenis_pengujian."</td>";
+											echo "<td>".$dt->jumlah."</td>";
+											echo "<td>".$dt->satuan."</td>";
+											echo "<td>Rp.<span class='float-right currency'>".$dt->harga."</span></td>";
+											echo "<td>Rp.<span class='float-right currency'>".$dt->jumlah_rp."</span></td>";
+											echo "<td class='text-danger'><b>Rp.<span class='float-right currency'>".$dt->total."</span></b></td>";
 										}else{
 											if($pre !== $dt->no_pad){
-												echo "<th style='font-weight:bold;'>".$dt->no_pad."</td>";
-												echo "<th style='font-weight:bold;'>".$dt->tanggal."</td>";
-												echo "<th style='font-weight:bold;'>".$dt->rekening."</td>";
-												echo "<th style='font-weight:bold;'>".$dt->kegiatan."</td>";
-												echo "<th style='font-weight:bold;'>".$dt->penyedia_jasa."</td>";
-												echo "<th style='font-weight:bold;'>".$dt->jenis_pengujian."</td>";
-												echo "<th style='font-weight:bold;'>".$dt->jumlah."</td>";
-												echo "<th style='font-weight:bold;'>".$dt->satuan."</td>";
-												echo "<th>Rp.<span class='float-right currency'>".$dt->harga."</span></td>";
-												echo "<th>Rp.<span class='float-right currency'>".$dt->jumlah_rp."</span></td>";
-												echo "<th>Rp.<span class='float-right currency'><b>".$dt->total."</span></b></td>";
+												echo "<td style='font-weight:bold;'>".$dt->no_pad."</td>";
+												echo "<td style='font-weight:bold;'>".$dt->tanggal."</td>";
+												echo "<td style='font-weight:bold;'>".$dt->rekening."</td>";
+												echo "<td style='font-weight:bold;'>".$dt->kegiatan."</td>";
+												echo "<td style='font-weight:bold;'>".$dt->penyedia_jasa."</td>";
+												echo "<td style='font-weight:bold;'>".$dt->jenis_pengujian."</td>";
+												echo "<td style='font-weight:bold;'>".$dt->jumlah."</td>";
+												echo "<td style='font-weight:bold;'>".$dt->satuan."</td>";
+												echo "<td>Rp.<span class='float-right currency'>".$dt->harga."</span></td>";
+												echo "<td>Rp.<span class='float-right currency'>".$dt->jumlah_rp."</span></td>";
+												echo "<td>Rp.<span class='float-right currency'><b>".$dt->total."</span></b></td>";
 											}else{
-												echo "<th style='color:transparent;'>".$dt->no_pad."</td>";
-												echo "<th style='color:transparent;'>".$dt->tanggal."</td>";
-												echo "<th style='color:transparent;'>".$dt->rekening."</td>";
-												echo "<th style='color:transparent;'>".$dt->kegiatan."</td>";
-												echo "<th style='color:transparent;'>".$dt->penyedia_jasa."</td>";
-												echo "<th>".$dt->jenis_pengujian."</td>";
-												echo "<th>".$dt->jumlah."</td>";
-												echo "<th>".$dt->satuan."</td>";
-												echo "<th>Rp.<span class='float-right currency'>".$dt->harga."</span></td>";
-												echo "<th>Rp.<span class='float-right currency'>".$dt->jumlah_rp."</span></td>";
-												echo "<th style='color:transparent;'>".$dt->total."</td>";
+												echo "<td style='color:transparent;'>".$dt->no_pad."</td>";
+												echo "<td style='color:transparent;'>".$dt->tanggal."</td>";
+												echo "<td style='color:transparent;'>".$dt->rekening."</td>";
+												echo "<td style='color:transparent;'>".$dt->kegiatan."</td>";
+												echo "<td style='color:transparent;'>".$dt->penyedia_jasa."</td>";
+												echo "<td>".$dt->jenis_pengujian."</td>";
+												echo "<td>".$dt->jumlah."</td>";
+												echo "<td>".$dt->satuan."</td>";
+												echo "<td>Rp.<span class='float-right currency'>".$dt->harga."</span></td>";
+												echo "<td>Rp.<span class='float-right currency'>".$dt->jumlah_rp."</span></td>";
+												echo "<td style='color:transparent;'>".$dt->total."</td>";
 											}
 										}
 									?>
