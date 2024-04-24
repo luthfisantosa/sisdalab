@@ -98,6 +98,8 @@
 		});
 
 		$("#userForm").on("submit", function(event) {
+			event.preventDefault(); // Prevent form submission
+
 			var no = $("#_no").val();
 			var cv = $("#_cv").val();
 			var no_spk = $("#_no_spk").val();
@@ -105,34 +107,31 @@
 			var lokasi = $("#_lokasi").val();
 			var uraian = $(".uraian").val();
 
-		    event.preventDefault(); // Prevent form submission
-
-		    // Collect form data as an array of objects
-		    const dataArray = $(this).serializeArray();
-
-		    // Log the array data (you can use it as you like)
-		    console.log(no + cv + no_spk + tanggal_spk + lokasi + uraian);
-
 		    // Collect form data as FormData object
-		      const formData = new FormData(this);
+		    const formData = new FormData(this);
 
 		      // Collect data from dynamically added inputs and append to FormData
-		      $(".uraian-input").each(function() {
-		        const description = $(this).find(".uraian").val();
-		        const quantity = $(this).find(".jumlah").val();
-		        const price = $(this).find(".item").val();
-		        const total = $(this).find(".harga_satuan").val();
+		    $(".uraian-input").each(function() {
+		    	const description = $(this).find(".uraian").val();
+		    	const quantity = $(this).find(".jumlah").val();
+		    	const price = $(this).find(".item").val();
+		    	const total = $(this).find(".harga_satuan").val();
 
-		        formData.append("description[]", description);
-		        formData.append("quantity[]", quantity);
-		        formData.append("price[]", price);
-		        formData.append("total[]", total);
-		      });
+		    	formData.append("description[]", description);
+		    	formData.append("quantity[]", quantity);
+		    	formData.append("price[]", price);
+		    	formData.append("total[]", total);
+		    });
 
-		      // Log the FormData object (you can use it as you like)
-		      for (const pair of formData.entries()) {
-		        console.log(pair[0] + ': ' + pair[1]);
-		      }
+		    var i = 0;
+
+		    // Log the FormData object (you can use it as you like)
+		    for (var pair of formData.entries()) {
+		    	// console.log(pair[0] + ': ' + pair[1]);
+		    	i++;
+		    }
+
+		    console.log(i - 6);
 		});
 
 		//Default data table
