@@ -11,36 +11,36 @@
                             <div class="col-sm-6">
                                 <div class="form-group mt-1">
                                     <label>No</label><small class="text-danger">*</small>
-                                    <input type="text" name="no" id="_no" class="form-control form-control-sm" placeholder="Nomor" value=""  />
+                                    <input type="text" name="no" id="_no" class="form-control form-control-sm" placeholder="Nomor" value="<?= $last_num; ?>" readonly />
                                 </div>
                                 <div class="form-group mt-1">
                                     <label>CV/PT</label><small class="text-danger">*</small>
-                                    <input type="text" name="cv" id="_cv" class="form-control form-control-sm" placeholder="cv" value=""  />
+                                    <input type="text" name="cv" id="_cv" class="form-control form-control-sm" placeholder="cv" value="cv abadi"  />
                                 </div>
                                 <div class="form-group mt-1">
                                     <label>No SPK</label><small class="text-danger">*</small>
-                                    <input type="text" name="no_spk" id="_no_spk" class="form-control form-control-sm" placeholder="no_spk" value=""  />
+                                    <input type="text" name="no_spk" id="_no_spk" class="form-control form-control-sm" placeholder="no_spk" value="123.1234.1294029"  />
                                 </div>
                                 <div class="form-group mt-1">
                                     <label>Tanggal SPK</label><small class="text-danger">*</small>
-                                    <input type="date" name="tanggal_spk" id="_tanggal_spk" class="form-control form-control-sm" placeholder="tanggal spk" value="" format="dd/mm/yyyy"  />
+                                    <input type="date" name="tanggal_spk" id="_tanggal_spk" class="form-control form-control-sm" placeholder="tanggal spk" value="" format="dd/mm/yyyy"  value="10/10/2024" />
                                 </div>
                                 <div class="form-group mt-1">
                                     <label>Lokasi</label><small class="text-danger">*</small>
-                                    <input type="text" name="lokasi" id="_lokasi" class="form-control form-control-sm" placeholder="Lokasi pengujian" value="" />
+                                    <input type="text" name="lokasi" id="_lokasi" class="form-control form-control-sm" placeholder="Lokasi pengujian" value="Cikampek" />
                                 </div>
                                 <div class="form-group mt-1">
                                     <label>Jenis Pengujian</label><small class="text-danger">*</small>
-                                    <input type="text" name="jenis_pengujian" id="_lokasi" class="form-control form-control-sm" placeholder="Jenis Pengujian" value="" />
+                                    <input type="text" name="jenis_pengujian" id="_jenis_pengujian" class="form-control form-control-sm" placeholder="Jenis Pengujian" value="test jalan" />
                                 </div>
                                 <div class="form-group border border-5 mt-1 p-4" >
                                 	<div id="uraianContainer">
 										<div class="uraian-input">
 											<label class="badge-info form-control">Tambah Uraian PAD | Uraian 1 <small class="text-danger">*</small></label><br>
-											<input type="text" class="uraian form-control" name="uraian[]" placeholder="Deskripsi Uraian" ><br>
-											<input type="number" class="jumlah form-control" name="jumlah[]" placeholder="Jumlah" min="0" ><br>
-											<input type="text" class="item form-control" name="item[]" placeholder="Item" ><br>
-											<input type="number" class="harga_satuan form-control" name="harga_satuan[]" placeholder="Harga Satuan" min="0" ><br>
+											<input type="text" class="uraian form-control" name="uraian[]" placeholder="Deskripsi Uraian" value="uraian"><br>
+											<input type="number" class="jumlah form-control" name="jumlah[]" placeholder="Jumlah" min="0" value="2"><br>
+											<input type="text" class="item form-control" name="item[]" placeholder="Item" value="item 1"><br>
+											<input type="number" class="harga_satuan form-control" name="harga_satuan[]" placeholder="Harga Satuan" min="0" value="1000"><br>
 											<button type="button" class="removeUraian btn btn-sm btn-danger float-right"><span class="bx bx-trash"></span> hapus uraian</button>
 										</div>
 									</div>
@@ -52,7 +52,7 @@
                                     <input type="number" name="total" id="_total" class="form-control form-control-sm" placeholder="Total" value="" readonly />
                                 </div>
 								<div class="form-group mt-1">
-                                    <button type="submit" id="_submit" class="btn btn-sm btn-primary float-right">SIMPAN</button>
+                                    <input type="submit" id="_submit" class="btn btn-sm btn-primary float-right" value="SIMPAN">
                                 </div>
                             </div>
                         </div>
@@ -66,6 +66,54 @@
 
 <script>
 	$(document).ready(function () {
+		
+		$("#userForm").on("submit", function(event) {
+			event.preventDefault(); // Prevent form submission
+
+			var no = $("#_no").val();
+			var cv = $("#_cv").val();
+			var no_spk = $("#_no_spk").val();
+			var tanggal_spk = $("#_tanggal_spk").val();
+			var lokasi = $("#_lokasi").val();
+			var jenis_pengujian = $("._jenis_pengujian").val();
+			var total = 0;
+
+		    // Collect form data as FormData object
+		    const formData = new FormData(this);
+
+		      // Collect data from dynamically added inputs and append to FormData
+		    $(".uraian-input").each(function() {
+		    	const uraian = $(this).find(".uraian").val();
+		    	const jumlah = $(this).find(".jumlah").val();
+		    	const item = $(this).find(".item").val();
+		    	const harga_satuan = $(this).find(".harga_satuan").val();
+		    	const subtotal = 1;
+
+		    	if (uraian && jumlah && item && harga_satuan && subtotal && total) {
+		    		formData.append("uraian[]", uraian);
+			    	formData.append("jumlah[]", jumlah);
+			    	formData.append("item[]", item);
+			    	formData.append("harga_satuan[]", harga_satuan);
+			    	formData.append("subtotal[]", subtotal);
+			    	total = total + subtotal;
+			    	formData.append("total[]", total);	
+		    	}
+		    });
+
+		    var y=0;
+
+		    // Log the FormData object (you can use it as you like)
+		    for (const pair of formData.entries()) {
+		    	console.log(pair[0] + ': ' + pair[1]);
+		    	y++;
+		    }
+
+		    y = y-7;
+		    const insert_loop = y/4;
+
+		    console.log(insert_loop);
+		});
+
 		var i = 1;
 		document.getElementById("addUraian").addEventListener("click", function() {
 			const uraianContainer = document.getElementById("uraianContainer");
@@ -95,43 +143,6 @@
 			button.addEventListener("click", function() {
 				button.parentElement.remove();
 			});
-		});
-
-		$("#userForm").on("submit", function(event) {
-			event.preventDefault(); // Prevent form submission
-
-			var no = $("#_no").val();
-			var cv = $("#_cv").val();
-			var no_spk = $("#_no_spk").val();
-			var tanggal_spk = $("#_tanggal_spk").val();
-			var lokasi = $("#_lokasi").val();
-			var uraian = $(".uraian").val();
-
-		    // Collect form data as FormData object
-		    const formData = new FormData(this);
-
-		      // Collect data from dynamically added inputs and append to FormData
-		    $(".uraian-input").each(function() {
-		    	const description = $(this).find(".uraian").val();
-		    	const quantity = $(this).find(".jumlah").val();
-		    	const price = $(this).find(".item").val();
-		    	const total = $(this).find(".harga_satuan").val();
-
-		    	formData.append("description[]", description);
-		    	formData.append("quantity[]", quantity);
-		    	formData.append("price[]", price);
-		    	formData.append("total[]", total);
-		    });
-
-		    var i = 0;
-
-		    // Log the FormData object (you can use it as you like)
-		    for (var pair of formData.entries()) {
-		    	// console.log(pair[0] + ': ' + pair[1]);
-		    	i++;
-		    }
-
-		    console.log(i - 6);
 		});
 
 		//Default data table

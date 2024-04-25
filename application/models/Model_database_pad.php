@@ -17,4 +17,19 @@ class Model_database_pad extends CI_Model {
             return $query->result(); // Return result as an array of objects
         }        
     }
+
+    public function last_val()
+    {
+        $query = $this->db->get('pad');
+
+        if ($query->num_rows() > 0) {
+            $row = $query->last_row();
+            $lastValue = $row->no_pad;
+            // Do something with $lastValue
+            return $lastValue;
+        } else {
+            // No rows found
+            return null;
+        }
+    }
 }

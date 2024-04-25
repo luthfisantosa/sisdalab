@@ -22,6 +22,8 @@ class Database_pad extends CI_Controller {
 
 			$data['title'] = "Form PAD | SISDALAB";
 			$data['card_title'] = "Form PAD";
+			$data['last_num'] = $this->Model_database_pad->last_val() + 1; // Get users with the WHERE condition
+			
 			$this->load->view('template/assets', $data);
 			$this->load->view('template/header', $data);
 			$this->load->view('form_pad', $data);
