@@ -7,69 +7,43 @@
 				<div class="card-header"><?= $card_title; ?></div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<table id="table_pad" class="table table-bordered display" style="width:100%">
+						<table id="table_pad" class="table display" style="width:100%">
 							<thead>
 								<tr>
-									<th>No PAD</th>
-									<th>Tanggal</th>
-									<th>Rekening</th>
-									<th>Kegiatan</th>
-									<th>Penyedia Jasa</th>
-									<th>Jenis Pengujian</th>
-									<th>Jumlah</th>
-									<th>Satuan</th>
-									<th width="200%">Harga</th>
-									<th>Jumlah (Rp)</th>
-									<th>Total</th>
+									<th>CV/PT</th>
+									<th>Nomor Rekening Laporan Kegiatan</th>
+									<!-- <th>Nomor Rekening PAD</th> -->
+									<!-- <th>Pekerjaan</th> -->
+									<!-- <th>Penyedia Jasa</th> -->
+									<!-- <th>Nama Kegiatan</th> -->
+									<th>Status</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php $pre = null ?>
 								<?php foreach($datatables as $dt): ?>
 								<tr>
-									<?php 
-										if($pre == null){
-											echo "<th>".$dt->no_pad."</td>";
-											echo "<th>".$dt->tanggal."</td>";
-											echo "<th>".$dt->rekening."</td>";
-											echo "<th>".$dt->kegiatan."</td>";
-											echo "<th>".$dt->penyedia_jasa."</td>";
-											echo "<th>".$dt->jenis_pengujian."</td>";
-											echo "<th>".$dt->jumlah."</td>";
-											echo "<th>".$dt->satuan."</td>";
-											echo "<th>Rp.<span class='float-right currency'>".$dt->harga."</span></td>";
-											echo "<th>Rp.<span class='float-right currency'>".$dt->jumlah_rp."</span></td>";
-											echo "<th>Rp.<span class='float-right currency'><b>".$dt->total."</span></b></td>";
-										}else{
-											if($pre !== $dt->no_pad){
-												echo "<th style='font-weight:bold;'>".$dt->no_pad."</td>";
-												echo "<th style='font-weight:bold;'>".$dt->tanggal."</td>";
-												echo "<th style='font-weight:bold;'>".$dt->rekening."</td>";
-												echo "<th style='font-weight:bold;'>".$dt->kegiatan."</td>";
-												echo "<th style='font-weight:bold;'>".$dt->penyedia_jasa."</td>";
-												echo "<th style='font-weight:bold;'>".$dt->jenis_pengujian."</td>";
-												echo "<th style='font-weight:bold;'>".$dt->jumlah."</td>";
-												echo "<th style='font-weight:bold;'>".$dt->satuan."</td>";
-												echo "<th>Rp.<span class='float-right currency'>".$dt->harga."</span></td>";
-												echo "<th>Rp.<span class='float-right currency'>".$dt->jumlah_rp."</span></td>";
-												echo "<th>Rp.<span class='float-right currency'><b>".$dt->total."</span></b></td>";
-											}else{
-												echo "<th style='color:transparent;'>".$dt->no_pad."</td>";
-												echo "<th style='color:transparent;'>".$dt->tanggal."</td>";
-												echo "<th style='color:transparent;'>".$dt->rekening."</td>";
-												echo "<th style='color:transparent;'>".$dt->kegiatan."</td>";
-												echo "<th style='color:transparent;'>".$dt->penyedia_jasa."</td>";
-												echo "<th>".$dt->jenis_pengujian."</td>";
-												echo "<th>".$dt->jumlah."</td>";
-												echo "<th>".$dt->satuan."</td>";
-												echo "<th>Rp.<span class='float-right currency'>".$dt->harga."</span></td>";
-												echo "<th>Rp.<span class='float-right currency'>".$dt->jumlah_rp."</span></td>";
-												echo "<th style='color:transparent;'>".$dt->total."</td>";
+									<td><?= $dt->cv; ?></td>
+									<!-- <td><?= $dt->kode_rekening; ?></td> -->
+									<!-- <td><?= $dt->rekening; ?></td> -->
+									<!-- <td><?= $dt->jenis_pekerjaan; ?></td> -->
+									<!-- <td><?= $dt->cv; ?></td> -->
+									<td><?= $dt->nama_kegiatan; ?></td>
+
+									<?php
+										if($dt->kode_rekening == $dt->rekening){
+											if($dt->kode_rekening == "" && $dt->rekening == ""){
+												echo "<td><span class='badge badge-danger'>BELUM DIBAYAR</span></td>";
+											}else{	
+												echo "<td><span class='badge badge-success'>SUDAH DIBAYAR</span></td>";
 											}
+										}else{
+											echo "<td><span class='badge badge-danger'>BELUM DIBAYAR</span></td>";
 										}
 									?>
+									
 								</tr>
-								<?php $pre = $dt->no_pad; ?>
+								<?php $pre = $dt->no_reg; ?>
 								<?php endforeach; ?>
 							</tbody>
 						</table>

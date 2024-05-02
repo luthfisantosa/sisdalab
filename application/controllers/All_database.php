@@ -15,7 +15,7 @@ class All_database extends CI_Controller {
 	        $where_condition = "";
 	        $table = "pad";
 
-	        $data['datatables'] = $this->Model_All_database->get_data($table, $where_condition); // Get users with the WHERE condition
+	        $data['datatables'] = $this->Model_All_database->get_data_union($table, $where_condition); // Get users with the WHERE condition
 
 			$data['title'] = "Database Hasil Penyaduran | SISDALAB";
 			$data['card_title'] = "Hasil Penyaduran basis data";

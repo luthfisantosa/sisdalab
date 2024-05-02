@@ -71,7 +71,7 @@
 										<p class="user-name mb-0"><?= $this->session->userdata('name'); ?></p>
 										<p class="designattion mb-0"><?= $this->session->userdata('status'); ?></p>
 									</div>
-									<img src="<?= base_url('assets/images/user.png'); ?>" class="user-img" alt="user avatar">
+									<img src="<?= base_url('assets/images/pupr-logo.png'); ?>" class="user-img" alt="user avatar">
 								</div>
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">	

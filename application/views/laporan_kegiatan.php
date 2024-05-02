@@ -18,7 +18,7 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<table id="table_kegiatan" class="table table-bordered display" style="width:100%">
+						<table id="table_kegiatan" class="table table-bordered table-striped display" style="width:100%">
 							<thead>
 								<tr>
 									<th>No PAD</th>

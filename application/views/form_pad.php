@@ -18,8 +18,8 @@
                                     <input type="text" name="cv" id="_cv" class="form-control form-control-sm" placeholder="cv" value="cv abadi"  />
                                 </div>
                                 <div class="form-group mt-1">
-                                    <label>No SPK</label><small class="text-danger">*</small>
-                                    <input type="text" name="no_spk" id="_no_spk" class="form-control form-control-sm" placeholder="no_spk" value="123.1234.1294029"  />
+                                    <label>No Rekening</label><small class="text-danger">*</small>
+                                    <input type="text" name="no_rekening" id="_no_rekening" class="form-control form-control-sm" placeholder="no_rekening" value="123.1234.1294029"  />
                                 </div>
                                 <div class="form-group mt-1">
                                     <label>Tanggal SPK</label><small class="text-danger">*</small>
@@ -41,6 +41,7 @@
 											<input type="number" class="jumlah form-control" name="jumlah[]" placeholder="Jumlah" min="0" value="2"><br>
 											<input type="text" class="item form-control" name="item[]" placeholder="Item" value="item 1"><br>
 											<input type="number" class="harga_satuan form-control" name="harga_satuan[]" placeholder="Harga Satuan" min="0" value="1000"><br>
+											<input type="number" class="subtotal form-control" name="subtotal[]" placeholder="Sub Total" min="0" readonly><br>
 											<button type="button" class="removeUraian btn btn-sm btn-danger float-right"><span class="bx bx-trash"></span> hapus uraian</button>
 										</div>
 									</div>
@@ -65,6 +66,7 @@
 
 
 <script>
+
 	$(document).ready(function () {
 		
 		$("#userForm").on("submit", function(event) {
@@ -72,11 +74,12 @@
 
 			var no = $("#_no").val();
 			var cv = $("#_cv").val();
-			var no_spk = $("#_no_spk").val();
+			var no_rekening = $("#_no_rekening").val();
 			var tanggal_spk = $("#_tanggal_spk").val();
 			var lokasi = $("#_lokasi").val();
 			var jenis_pengujian = $("._jenis_pengujian").val();
 			var total = 0;
+			var bag = [][];
 
 		    // Collect form data as FormData object
 		    const formData = new FormData(this);
@@ -87,7 +90,7 @@
 		    	const jumlah = $(this).find(".jumlah").val();
 		    	const item = $(this).find(".item").val();
 		    	const harga_satuan = $(this).find(".harga_satuan").val();
-		    	const subtotal = 1;
+		    	subtotal = $(this).find(".harga_satuan").val() * 2;
 
 		    	if (uraian && jumlah && item && harga_satuan && subtotal && total) {
 		    		formData.append("uraian[]", uraian);
@@ -105,13 +108,14 @@
 		    // Log the FormData object (you can use it as you like)
 		    for (const pair of formData.entries()) {
 		    	console.log(pair[0] + ': ' + pair[1]);
+		    	bag.push(pair[1]);
 		    	y++;
 		    }
 
 		    y = y-7;
-		    const insert_loop = y/4;
+		    const insert_loop = y/5;
 
-		    console.log(insert_loop);
+		    console.log(bag[7]*bag[9]);
 		});
 
 		var i = 1;
@@ -127,6 +131,7 @@
 			<input type="number" class="jumlah form-control" name="jumlah[]" placeholder="Jumlah" min="0" required><br>
 			<input type="text" class="item form-control" name="item[]" placeholder="Item" required><br>
 			<input type="number" class="harga_satuan form-control" name="harga_satuan[]" placeholder="Harga Satuan" min="0" required><br>
+			<input type="number" class="subtotal form-control" name="subtotal[]" placeholder="Sub Total" min="0" readonly><br>
 			<button type="button" class="removeUraian btn btn-sm btn-danger float-right">hapus uraian</button>
 			</div>
 			`;
