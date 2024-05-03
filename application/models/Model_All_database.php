@@ -25,11 +25,11 @@ class Model_All_database extends CI_Model {
             $this->db->where($where);
         }else{
             $query = $this->db->query("
-                SELECT laporan_kegiatan.no_reg, laporan_kegiatan.kode_rekening, laporan_kegiatan.cv, laporan_kegiatan.nama_kegiatan, pad.rekening
+                SELECT laporan_kegiatan.no_reg, laporan_kegiatan.kode_rekening, laporan_kegiatan.cv, laporan_kegiatan.nama_kegiatan, pad.rekening, laporan_kegiatan.jenis_pekerjaan
                 FROM laporan_kegiatan
                 LEFT JOIN pad on laporan_kegiatan.kode_rekening = pad.rekening
                 UNION
-                SELECT laporan_kegiatan.no_reg, laporan_kegiatan.kode_rekening, laporan_kegiatan.cv, laporan_kegiatan.nama_kegiatan, pad.rekening
+                SELECT laporan_kegiatan.no_reg, laporan_kegiatan.kode_rekening, laporan_kegiatan.cv, laporan_kegiatan.nama_kegiatan, pad.rekening, laporan_kegiatan.jenis_pekerjaan
                 FROM laporan_kegiatan
                 RIGHT JOIN pad on laporan_kegiatan.kode_rekening = pad.rekening
 

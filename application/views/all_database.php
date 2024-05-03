@@ -12,10 +12,7 @@
 								<tr>
 									<th>CV/PT</th>
 									<th>Nomor Rekening Laporan Kegiatan</th>
-									<!-- <th>Nomor Rekening PAD</th> -->
-									<!-- <th>Pekerjaan</th> -->
-									<!-- <th>Penyedia Jasa</th> -->
-									<!-- <th>Nama Kegiatan</th> -->
+									<th>Uraian Pekerjaan</th>
 									<th>Status</th>
 								</tr>
 							</thead>
@@ -24,11 +21,8 @@
 								<?php foreach($datatables as $dt): ?>
 								<tr>
 									<td><?= $dt->cv; ?></td>
-									<!-- <td><?= $dt->kode_rekening; ?></td> -->
-									<!-- <td><?= $dt->rekening; ?></td> -->
-									<!-- <td><?= $dt->jenis_pekerjaan; ?></td> -->
-									<!-- <td><?= $dt->cv; ?></td> -->
-									<td><?= $dt->nama_kegiatan; ?></td>
+									<td><?= $dt->rekening; ?></td>
+									<td><?= $dt->jenis_pekerjaan; ?></td>
 
 									<?php
 										if($dt->kode_rekening == $dt->rekening){
@@ -58,7 +52,9 @@
 <script>
 	$(document).ready(function () {
 		//Default data table
-		$('#table_pad').DataTable();
+		$('#table_pad').DataTable({             
+			order: [[ 3, 'desc' ]]                
+		});
 
 		$('.currency').inputmask({
 	        alias: 'currency',

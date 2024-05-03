@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2024 at 05:31 AM
+-- Generation Time: May 03, 2024 at 04:03 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.32
 
@@ -51,7 +51,7 @@ CREATE TABLE `laporan_kegiatan` (
 --
 
 INSERT INTO `laporan_kegiatan` (`id_kegiatan`, `no_reg`, `tanggal_dibuat`, `no_laporan`, `kode_rekening`, `nama_kegiatan`, `nama_lokasi`, `cv`, `jenis_pekerjaan`, `tipe_pekerjaan`, `nama_pemborong`, `wilayah`, `abt`, `created_by`, `date_created`) VALUES
-(1, 1, '09/02/2024', '600.2.14.2', '10.2.01.16.1', 'Penyelenggaraan Jalan Kabupaten/Kota', '', 'CV. CIAMPEA JAYA', 'BC + CBR', '', '', 'Cikampek', 'non-abt', 'admin', '19/4/2024'),
+(1, 1, '09/02/2024', '600.2.14.2', '10.2.01.16.1', 'Penyelenggaraan Jalan Kabupaten/Kota', '', 'CV. CIAMPEA JAYA', 'BC + CBR', '', 'Agus', 'Cikampek', 'non-abt', 'admin', '19/4/2024'),
 (2, 2, '14/02/2024', '600.2.14.2', '10.2.01.08.2.151', 'Penyelenggaraan Jalan Kabupaten/Kota', '', 'CV. CIPUTRA MANGGALA TUNGGAL', 'R + H', '', 'Agus', 'Rengasdengklok', 'non-abt', 'admin', '19/4/2024'),
 (3, 3, '17/05/2023', '600.2.14.2', '', 'Proyek Pembangunan Gudang Urea Curah PT. Pupuk Kujang Cikampek', '', 'PT. WIJAYA KARYA REKAYASA KONSTRUKSI', 'Pengujian Base Course B Ex. Bandung', '', 'Swasta', 'Cikampek', 'non-abt', 'admin', '19/4/2024'),
 (4, 4, '22/02/2024', '600.2.14.2', '', 'Proyek Pembangunan Kawasan JISC Purwakarta', '', 'PT. MULTI OPTIMAL SENTOSA', 'Coredrill dan Kuat Tekan Beton Inti', '', 'Swasta', '', 'non-abt', 'admin', '19/4/2024'),
@@ -955,10 +955,7 @@ INSERT INTO `laporan_kegiatan` (`id_kegiatan`, `no_reg`, `tanggal_dibuat`, `no_l
 (899, 899, '30/12/2023', '600.2.14.2', '', 'Pelebaran Jalan Kabupaten', '', 'CV. FIDIGO RAYA', 'R', '', 'Ugi', 'Karawang', 'abt', 'admin', '19/4/2024'),
 (900, 900, '30/12/2023', '600.2.14.2', '10.2.01.08.3.326.ABT', 'Peningkatan Jalan', '', 'CV. NURJANAH ILLAHI', 'R + H', '', 'H. Abas', 'Karawang', 'abt', 'admin', '19/4/2024'),
 (901, 901, '30/12/2023', '600.2.14.2', '10.2.01.08.3.263.ABT', 'Peniingkatan Jalan', '', 'CV. CIWULAN BANGKIT', 'H', '', 'Beling', 'Cikampek', 'abt', 'admin', '19/4/2024'),
-(902, 902, '20/04/2024', '600.2.14.2', 'sw.903', 'a', '', 'a', 'a', 'swasta', 'a', 'karawang', 'abt', 'admin', '19/4/2024'),
-(903, 903, '20/04/2024', '600.2.14.2', 'sw.904', 'a', '', 'a', 'a', 'swasta', 'a', 'karawang', 'abt', 'admin', '19/4/2024'),
-(904, 904, '20/04/2024', '600.2.14.2', '30.10.02.08.986', 'Peningkatan Jalan Kabupaten', '', 'CV. WIJAYA & CO', 'H + R', 'dinas', 'H. Jenal', 'karawang', 'abt', 'admin', '19/4/2024'),
-(905, 905, '20/04/2024', '600.2.14.2', 'sw.906', 'Peningkatan Jalan Kabupaten', '', 'CV. WIJAYA & CO', 'H + R', 'swasta', 'H. Jenal', 'telaga sari', 'abt', 'admin', '19/4/2024');
+(904, 904, '20/04/2024', '600.2.14.2', '30.10.02.08.986', 'Peningkatan Jalan Kabupaten', '', 'CV. WIJAYA & CO', 'H + R', 'dinas', 'H. Jenal', 'karawang', 'abt', 'admin', '19/4/2024');
 
 -- --------------------------------------------------------
 
@@ -970,7 +967,8 @@ CREATE TABLE `pad` (
   `id_pad` int(11) NOT NULL,
   `no_pad` int(11) NOT NULL,
   `tanggal` varchar(12) NOT NULL,
-  `rekening` varchar(100) NOT NULL,
+  `kode_rekening` varchar(100) NOT NULL,
+  `rekening` varchar(50) DEFAULT NULL,
   `kegiatan` varchar(100) NOT NULL,
   `penyedia_jasa` varchar(100) NOT NULL,
   `jenis_pengujian` varchar(100) NOT NULL,
@@ -986,16 +984,16 @@ CREATE TABLE `pad` (
 -- Dumping data for table `pad`
 --
 
-INSERT INTO `pad` (`id_pad`, `no_pad`, `tanggal`, `rekening`, `kegiatan`, `penyedia_jasa`, `jenis_pengujian`, `uraian_pengujian`, `jumlah`, `satuan`, `harga`, `jumlah_rp`, `total`) VALUES
-(2, 1, '17/02/2024', '027.2/077/10.2.01.16.1/KPA-JLN PUPR/2022', 'Test CBR dan Kepadatan Jembatan', 'CV. CIAMPEA JAYA (Andri)', 'Pekerjaan CBR dan Kepadatan', 'Pemeriksaan Test CBR', 2, 'Titik', '400,000', 800000, 900000),
-(3, 1, '17/02/2024', '027.2/077/10.2.01.16.1/KPA-JLN PUPR/2022', 'Test CBR dan Kepadatan Jembatan', 'CV. CIAMPEA JAYA (Andri)', 'Pekerjaan CBR dan Kepadatan', 'Pemeriksaan Test Kepadatan', 2, 'Kali', '50,000', 100000, 900000),
-(4, 2, '17/02/2024', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM (Nizar)', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Bahan', 1, 'Sample', '300,000', 300000, 875000),
-(5, 2, '17/02/2024', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM (Nizar)', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Slump', 1, 'Kali', '50,000', 50000, 875000),
-(6, 2, '17/02/2024', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM (Nizar)', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Kuat Tekan Beton', 3, 'Buah', '25,000', 75000, 875000),
-(7, 2, '17/02/2024', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM (Nizar)', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Coredrill', 3, 'Titik', '150,000', 450000, 875000),
-(8, 3, '17/02/2024', '', 'Proyek Pabrik Katalis Cikampek (Test CBR)', 'PT. WIJAYA KARYA (Ganang)', 'Pekerjaan CBR', 'Pemeriksaan Test CBR', 3, 'Titik', '400,000', 1200000, 1200000),
-(9, 4, '17/02/2024', '', 'Test Kubus Beton Lokasi Padalarang - Cirata', 'PT. INDISI (Rahman)', 'Pekerjaan Test Kubus Beton', 'Pemeriksaan Kuat Tekan Beton', 200, 'Sample', '7,500', 1500000, 1500000),
-(10, 5, '17/02/2024', '', 'Jalan Proyek Pabrik PT Nipro Indonesia Jaya', 'CV. FAJAR MANDIRI (Endang)', 'Pekerjaan Test Coredrill', 'Pekerjaan Test Coredrill', 2, 'Titik', '150,000', 300000, 300000);
+INSERT INTO `pad` (`id_pad`, `no_pad`, `tanggal`, `kode_rekening`, `rekening`, `kegiatan`, `penyedia_jasa`, `jenis_pengujian`, `uraian_pengujian`, `jumlah`, `satuan`, `harga`, `jumlah_rp`, `total`) VALUES
+(2, 1, '17/02/2024', '027.2/077/10.2.01.16.1/KPA-JLN PUPR/2022', '10.2.01.16.1', 'Test CBR dan Kepadatan Jembatan', 'CV. CIAMPEA JAYA (Andri)', 'Pekerjaan CBR dan Kepadatan', 'Pemeriksaan Test CBR', 2, 'Titik', '400,000', 800000, 900000),
+(3, 1, '17/02/2024', '027.2/077/10.2.01.16.1/KPA-JLN PUPR/2022', '10.2.01.16.1', 'Test CBR dan Kepadatan Jembatan', 'CV. CIAMPEA JAYA (Andri)', 'Pekerjaan CBR dan Kepadatan', 'Pemeriksaan Test Kepadatan', 2, 'Kali', '50,000', 100000, 900000),
+(4, 2, '17/02/2024', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', '08.2.01.02.120', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM (Nizar)', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Bahan', 1, 'Sample', '300,000', 300000, 875000),
+(5, 2, '17/02/2024', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', '08.2.01.02.120', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM (Nizar)', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Slump', 1, 'Kali', '50,000', 50000, 875000),
+(6, 2, '17/02/2024', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', '08.2.01.02.120', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM (Nizar)', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Kuat Tekan Beton', 3, 'Buah', '25,000', 75000, 875000),
+(7, 2, '17/02/2024', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', '08.2.01.02.120', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM (Nizar)', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Coredrill', 3, 'Titik', '150,000', 450000, 875000),
+(8, 3, '17/02/2024', '', NULL, 'Proyek Pabrik Katalis Cikampek (Test CBR)', 'PT. WIJAYA KARYA (Ganang)', 'Pekerjaan CBR', 'Pemeriksaan Test CBR', 3, 'Titik', '400,000', 1200000, 1200000),
+(9, 4, '17/02/2024', '', NULL, 'Test Kubus Beton Lokasi Padalarang - Cirata', 'PT. INDISI (Rahman)', 'Pekerjaan Test Kubus Beton', 'Pemeriksaan Kuat Tekan Beton', 200, 'Sample', '7,500', 1500000, 1500000),
+(10, 5, '17/02/2024', '', NULL, 'Jalan Proyek Pabrik PT Nipro Indonesia Jaya', 'CV. FAJAR MANDIRI (Endang)', 'Pekerjaan Test Coredrill', 'Pekerjaan Test Coredrill', 2, 'Titik', '150,000', 300000, 300000);
 
 -- --------------------------------------------------------
 
