@@ -79,7 +79,7 @@
 			var lokasi = $("#_lokasi").val();
 			var jenis_pengujian = $("._jenis_pengujian").val();
 			var total = 0;
-			var bag = [][];
+			var bag = [];
 
 		    // Collect form data as FormData object
 		    const formData = new FormData(this);
@@ -151,8 +151,7 @@
 		});
 
 		//Default data table
-		$('#table_pad').DataTable({
-		});
+		$('#table_pad').DataTable();
 
 		$('.currency').inputmask({
 	        alias: 'currency',

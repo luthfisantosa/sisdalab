@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2024 at 04:03 AM
+-- Generation Time: May 06, 2024 at 03:51 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.32
 
@@ -971,29 +971,73 @@ CREATE TABLE `pad` (
   `rekening` varchar(50) DEFAULT NULL,
   `kegiatan` varchar(100) NOT NULL,
   `penyedia_jasa` varchar(100) NOT NULL,
+  `pemborong` varchar(30) NOT NULL,
   `jenis_pengujian` varchar(100) NOT NULL,
   `uraian_pengujian` varchar(100) NOT NULL,
   `jumlah` int(11) NOT NULL,
   `satuan` varchar(100) NOT NULL,
   `harga` varchar(100) NOT NULL,
   `jumlah_rp` int(11) NOT NULL,
-  `total` int(11) NOT NULL
+  `total` int(11) NOT NULL,
+  `created_by` varchar(30) DEFAULT NULL,
+  `created_date` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pad`
 --
 
-INSERT INTO `pad` (`id_pad`, `no_pad`, `tanggal`, `kode_rekening`, `rekening`, `kegiatan`, `penyedia_jasa`, `jenis_pengujian`, `uraian_pengujian`, `jumlah`, `satuan`, `harga`, `jumlah_rp`, `total`) VALUES
-(2, 1, '17/02/2024', '027.2/077/10.2.01.16.1/KPA-JLN PUPR/2022', '10.2.01.16.1', 'Test CBR dan Kepadatan Jembatan', 'CV. CIAMPEA JAYA (Andri)', 'Pekerjaan CBR dan Kepadatan', 'Pemeriksaan Test CBR', 2, 'Titik', '400,000', 800000, 900000),
-(3, 1, '17/02/2024', '027.2/077/10.2.01.16.1/KPA-JLN PUPR/2022', '10.2.01.16.1', 'Test CBR dan Kepadatan Jembatan', 'CV. CIAMPEA JAYA (Andri)', 'Pekerjaan CBR dan Kepadatan', 'Pemeriksaan Test Kepadatan', 2, 'Kali', '50,000', 100000, 900000),
-(4, 2, '17/02/2024', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', '08.2.01.02.120', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM (Nizar)', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Bahan', 1, 'Sample', '300,000', 300000, 875000),
-(5, 2, '17/02/2024', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', '08.2.01.02.120', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM (Nizar)', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Slump', 1, 'Kali', '50,000', 50000, 875000),
-(6, 2, '17/02/2024', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', '08.2.01.02.120', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM (Nizar)', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Kuat Tekan Beton', 3, 'Buah', '25,000', 75000, 875000),
-(7, 2, '17/02/2024', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', '08.2.01.02.120', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM (Nizar)', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Coredrill', 3, 'Titik', '150,000', 450000, 875000),
-(8, 3, '17/02/2024', '', NULL, 'Proyek Pabrik Katalis Cikampek (Test CBR)', 'PT. WIJAYA KARYA (Ganang)', 'Pekerjaan CBR', 'Pemeriksaan Test CBR', 3, 'Titik', '400,000', 1200000, 1200000),
-(9, 4, '17/02/2024', '', NULL, 'Test Kubus Beton Lokasi Padalarang - Cirata', 'PT. INDISI (Rahman)', 'Pekerjaan Test Kubus Beton', 'Pemeriksaan Kuat Tekan Beton', 200, 'Sample', '7,500', 1500000, 1500000),
-(10, 5, '17/02/2024', '', NULL, 'Jalan Proyek Pabrik PT Nipro Indonesia Jaya', 'CV. FAJAR MANDIRI (Endang)', 'Pekerjaan Test Coredrill', 'Pekerjaan Test Coredrill', 2, 'Titik', '150,000', 300000, 300000);
+INSERT INTO `pad` (`id_pad`, `no_pad`, `tanggal`, `kode_rekening`, `rekening`, `kegiatan`, `penyedia_jasa`, `pemborong`, `jenis_pengujian`, `uraian_pengujian`, `jumlah`, `satuan`, `harga`, `jumlah_rp`, `total`, `created_by`, `created_date`) VALUES
+(1, 1, '17/02/2023', '027.2/077/10.2.01.16.1/KPA-JLN PUPR/2021', '10.2.01.16.1', 'Test CBR dan Kepadatan Jembatan', 'CV. CIAMPEA JAYA', 'Andri', 'Pekerjaan CBR dan Kepadatan', 'Pemeriksaan Test CBR', 2, 'Titik', '400.000', 800, 900, 'admin', 5),
+(2, 1, '17/02/2023', '027.2/077/10.2.01.16.1/KPA-JLN PUPR/2022', '10.2.01.16.1', 'Test CBR dan Kepadatan Jembatan', 'CV. CIAMPEA JAYA', 'Andri', 'Pekerjaan CBR dan Kepadatan', 'Pemeriksaan Test Kepadatan', 2, 'Kali', '50.000', 100, 900, 'admin', 5),
+(3, 2, '17/02/2023', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', '08.2.01.02.120', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM', 'Nizar', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Bahan', 1, 'Sample', '300.000', 300, 875, 'admin', 5),
+(4, 2, '17/02/2023', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', '08.2.01.02.120', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM', 'Nizar', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Slump', 1, 'Kali', '50.000', 50, 875, 'admin', 5),
+(5, 2, '17/02/2023', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', '08.2.01.02.120', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM', 'Nizar', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Kuat Tekan Beton', 3, 'Buah', '25.000', 75, 875, 'admin', 5),
+(6, 2, '17/02/2023', '027.2/441/08.2.01.02.120/ABT/KPA-BGN/PUPR/2022', '08.2.01.02.120', 'Emplacement Posyandu Mawar IX Dusun Sukaresmi Anggadita', 'CV. AGEM', 'Nizar', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Coredrill', 3, 'Titik', '150.000', 450, 875, 'admin', 5),
+(7, 3, '17/02/2023', 'PT.WKRK/170223/PCBR/01/PUPR', 'PT.WKRK/170223/PCBR/01/PUPR', 'Proyek Pabrik Katalis Cikampek (Test CBR)', 'PT. WIJAYA KARYA REKAYASA KONSTRUKSI', 'Ganang', 'Pekerjaan CBR', 'Pemeriksaan Test CBR', 3, 'Titik', '400.000', 1200, 1200, 'admin', 5),
+(8, 4, '17/02/2023', 'PT.IDS/170223/PTKB/01/PUPR', 'PT.IDS/170223/PTKB/01/PUPR', 'Test Kubus Beton Lokasi Padalarang - Cirata', 'PT. INDISI', 'Rahman', 'Pekerjaan Test Kubus Beton', 'Pemeriksaan Kuat Tekan Beton', 200, 'Sample', '7.500', 1500, 1500, 'admin', 5),
+(9, 5, '17/02/2023', 'CV.FM/170223/PTC/01/PUPR', 'CV.FM/170223/PTC/01/PUPR', 'Jalan Proyek Pabrik PT Nipro Indonesia Jaya', 'CV. FAJAR MANDIRI', 'Endang', 'Pekerjaan Test Coredrill', 'Pekerjaan Test Coredrill', 2, 'Titik', '150.000', 300, 300, 'admin', 5),
+(10, 6, '5/3/2023', 'PT.TMK/050323/PCBR/01/PUPR', 'PT.TMK/050323/PCBR/01/PUPR', 'Test CBR Pembangunan Jembatan Rumambe 2', 'PT. TRI MANUNGGAL KARYA', 'Asep', 'Pekerjaan CBR', 'Pemeriksaan Test CBR', 10, 'Titik', '400.000', 4000, 4000, 'admin', 5),
+(11, 7, '5/3/2023', 'CV.RAR/050323/PCH/01PUPR', 'CV.RAR/050323/PCH/01PUPR', 'Proyek Pertamina Cilamaya Wetan', 'CV. ROBOT AR', 'Endang', 'Pekerjaan Coredrill Hotmix', 'Test Coredrill Hotmix', 3, 'Titik', '50.000', 150, 150, 'admin', 5),
+(12, 8, '5/3/2023', 'PT.MOS/050323/PCB/01/PUPR', 'PT.MOS/050323/PCB/01/PUPR', 'Proyek Kawasan JISC', 'PT. MULTI OPTIMAL SENTOSA', 'Rora', 'Pekerjaan Coredrill Beton', 'Test Coredrill Beton', 10, 'Titik', '150.000', 1500, 1500, 'admin', 5),
+(13, 9, '5/3/2023', 'PT.MOS/050321/PTK/02/PUPR', 'PT.MOS/050321/PTK/02/PUPR', 'Proyek Kawasan JISC', 'PT. MULTI OPTIMAL SENTOSA', 'Rora', 'Pekerjaan Test Kepadatan', 'Test Base Course', 1, 'Sample', '300.000', 300, 300, 'admin', 5),
+(14, 10, '13/04/2023', 'PT.IEM/130423/PTKB/01/PUPR', 'PT.IEM/130423/PTKB/01/PUPR', 'Test Kubus Beton', 'PT. INDOKARYA ELEKTRIK MANDIRI', 'Erdian', 'Pekerjaan Test Kubus Beton', 'Pemeriksaan Test Kubus', 200, 'Sample', '7.500', 1500, 1500, 'admin', 5),
+(15, 11, '13/04/2023', 'PT.SMK/130423/PTKB/01/PUPR', 'PT.SMK/130423/PTKB/01/PUPR', 'Test Kubus Beton', 'PT. SEJAHTERA MULIA KENCANA', 'Asep', 'Pekerjaan Test Kubus Beton', 'Pemeriksaan Test Kubus', 140, 'Sample', '7.500', 1050, 1050, 'admin', 5),
+(16, 12, '13/04/2023', 'PT.IEM/130423/PTKB/02/PUPR', 'PT.IEM/130423/PTKB/02/PUPR', 'Test Kubus Beton', 'PT. INDOKARYA ELEKTRIK MANDIRI', 'Erdian', 'Pekerjaan Test Kubus Beton', 'Pemeriksaan Test Kubus', 100, 'Sample', '7.500', 750, 750, 'admin', 5),
+(17, 13, '13/04/2023', 'PT.KIKC/130423/PTBT/01/PUPR', 'PT.KIKC/130423/PTBT/01/PUPR', 'Test Bahan Tanah', 'PT. KAWASAN INDUSTRI KUJANG CIKAMPEK', 'Berry', 'Pekerjaan Test Bahan Tanah', 'Test Base Course', 3, 'Sample', '300.000', 900, 900, 'admin', 5),
+(18, 14, '13/04/2023', 'PT.MWT/130423/PTBT/01/PUPR', 'PT.MWT/130423/PTBT/01/PUPR', 'Test Bahan Tanah', 'PT. MODERN WIDYA TECHNICAL', 'Chady', 'Pekerjaan Test Bahan Tanah', 'Test Base Course', 2, 'Sample', '300.000', 600, 600, 'admin', 5),
+(19, 15, '5/5/2023', '027.2/076/10.2.01.08.2.2/KPA-JLN/PUPR/2022', '10.2.01.08.2.2', 'Peningkatan Jalan Johar - Gempol (DAK) Kecamatan Tirtajaya', 'CV. FRIMA JAYA', 'Ida', 'Pekerjaan Beton Ampar', 'Pemeriksaan Bahan', 1, 'Sample', '300.000', 300, 1375, 'admin', 5),
+(20, 15, '5/5/2023', '027.2/076/10.2.01.08.2.2/KPA-JLN/PUPR/2022', '10.2.01.08.2.2', 'Peningkatan Jalan Johar - Gempol (DAK) Kecamatan Tirtajaya', 'CV. FRIMA JAYA', 'Ida', 'Pekerjaan Beton Ampar', 'Pemeriksaan Kepadatan', 4, 'Kali', '50.000', 200, 1375, 'admin', 5),
+(21, 15, '5/5/2023', '027.2/076/10.2.01.08.2.2/KPA-JLN/PUPR/2022', '10.2.01.08.2.2', 'Peningkatan Jalan Johar - Gempol (DAK) Kecamatan Tirtajaya', 'CV. FRIMA JAYA', 'Ida', 'Pekerjaan Beton Ampar', 'Pemeriksaan Slump', 1, 'Kali', '50.000', 50, 1375, 'admin', 5),
+(22, 15, '5/5/2023', '027.2/076/10.2.01.08.2.2/KPA-JLN/PUPR/2022', '10.2.01.08.2.2', 'Peningkatan Jalan Johar - Gempol (DAK) Kecamatan Tirtajaya', 'CV. FRIMA JAYA', 'Ida', 'Pekerjaan Beton Ampar', 'Pemeriksaan Kuat Tekan Beton', 3, 'Buah', '25.000', 75, 1375, 'admin', 5),
+(23, 15, '5/5/2023', '027.2/076/10.2.01.08.2.2/KPA-JLN/PUPR/2022', '10.2.01.08.2.2', 'Peningkatan Jalan Johar - Gempol (DAK) Kecamatan Tirtajaya', 'CV. FRIMA JAYA', 'Ida', 'Pekerjaan Beton Ampar', 'Pemeriksaan Coredrill', 5, 'Titik', '150.000', 750, 1375, 'admin', 5),
+(24, 16, '5/5/2023', '027.2/004/10.2.01.08.2.7/PPK-JLN/PUPR/2022', '10.2.01.08.2.7', 'Jalan Cakradireja Jatisari Tengah Kelurahan Karangpawitan', 'CV. ISTIQOMAH', 'Yusup', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Bahan', 1, 'Sample', '300.000', 300, 875, 'admin', 5),
+(25, 16, '5/5/2023', '027.2/004/10.2.01.08.2.7/PPK-JLN/PUPR/2022', '10.2.01.08.2.7', 'Jalan Cakradireja Jatisari Tengah Kelurahan Karangpawitan', 'CV. ISTIQOMAH', 'Yusup', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Slump', 1, 'Kali', '50.000', 50, 875, 'admin', 5),
+(26, 16, '5/5/2023', '027.2/004/10.2.01.08.2.7/PPK-JLN/PUPR/2022', '10.2.01.08.2.7', 'Jalan Cakradireja Jatisari Tengah Kelurahan Karangpawitan', 'CV. ISTIQOMAH', 'Yusup', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Kuat Tekan Beton', 3, 'Buah', '25.000', 75, 875, 'admin', 5),
+(27, 16, '5/5/2023', '027.2/004/10.2.01.08.2.7/PPK-JLN/PUPR/2022', '10.2.01.08.2.7', 'Jalan Cakradireja Jatisari Tengah Kelurahan Karangpawitan', 'CV. ISTIQOMAH', 'Yusup', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Coredrill', 3, 'Titik', '150.000', 450, 875, 'admin', 5),
+(28, 17, '5/5/2023', '027.2/003/10.2.01.08.2.25/PPK-JLN/PUPR/2023', '10.2.01.08.2.25', 'Jalan Dusun V RT. 002/005 Desa Sumurgede Kecamatan Cilamaya Kulon', 'CV. MULIA JATA PRATAMA', 'Yusup', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Bahan', 1, 'Sample', '300.000', 300, 875, 'admin', 5),
+(29, 17, '5/5/2023', '027.2/003/10.2.01.08.2.25/PPK-JLN/PUPR/2023', '10.2.01.08.2.25', 'Jalan Dusun V RT. 002/005 Desa Sumurgede Kecamatan Cilamaya Kulon', 'CV. MULIA JATA PRATAMA', 'Yusup', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Slump', 1, 'Kali', '50.000', 50, 875, 'admin', 5),
+(30, 17, '5/5/2023', '027.2/003/10.2.01.08.2.25/PPK-JLN/PUPR/2023', '10.2.01.08.2.25', 'Jalan Dusun V RT. 002/005 Desa Sumurgede Kecamatan Cilamaya Kulon', 'CV. MULIA JATA PRATAMA', 'Yusup', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Kuat Tekan Beton', 3, 'Buah', '25.000', 75, 875, 'admin', 5),
+(31, 17, '5/5/2023', '027.2/003/10.2.01.08.2.25/PPK-JLN/PUPR/2023', '10.2.01.08.2.25', 'Jalan Dusun V RT. 002/005 Desa Sumurgede Kecamatan Cilamaya Kulon', 'CV. MULIA JATA PRATAMA', 'Yusup', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Coredrill', 3, 'Titik', '150.000', 450, 875, 'admin', 5),
+(32, 18, '21/05/2023', '027.2/035/10.2.01.08.2.143/KPA-JLN/PUPR/2022', '10.2.01.08.2.143', 'Jalan Sungaibuntu - TIR Kecamatan Cilebar', 'CV. HADE KARYA PRADANA', 'Vikram', 'Pekerjaan Beton Ampar', 'Pemeriksaan Bahan', 1, 'Sample', '300.000', 300, 975, 'admin', 5),
+(33, 18, '21/05/2023', '027.2/035/10.2.01.08.2.143/KPA-JLN/PUPR/2022', '10.2.01.08.2.143', 'Jalan Sungaibuntu - TIR Kecamatan Cilebar', 'CV. HADE KARYA PRADANA', 'Vikram', 'Pekerjaan Beton Ampar', 'Pemeriksaan Kepadatan', 2, 'Kali', '50.000', 100, 975, 'admin', 5),
+(34, 18, '21/05/2023', '027.2/035/10.2.01.08.2.143/KPA-JLN/PUPR/2022', '10.2.01.08.2.143', 'Jalan Sungaibuntu - TIR Kecamatan Cilebar', 'CV. HADE KARYA PRADANA', 'Vikram', 'Pekerjaan Beton Ampar', 'Pemeriksaan Slump', 1, 'Kali', '50.000', 50, 975, 'admin', 5),
+(35, 18, '21/05/2023', '027.2/035/10.2.01.08.2.143/KPA-JLN/PUPR/2022', '10.2.01.08.2.143', 'Jalan Sungaibuntu - TIR Kecamatan Cilebar', 'CV. HADE KARYA PRADANA', 'Vikram', 'Pekerjaan Beton Ampar', 'Pemeriksaan Kuat Tekan Beton', 3, 'Buah', '25.000', 75, 975, 'admin', 5),
+(36, 18, '21/05/2023', '027.2/035/10.2.01.08.2.143/KPA-JLN/PUPR/2022', '10.2.01.08.2.143', 'Jalan Sungaibuntu - TIR Kecamatan Cilebar', 'CV. HADE KARYA PRADANA', 'Vikram', 'Pekerjaan Beton Ampar', 'Pemeriksaan Coredrill', 3, 'Titik', '150.000', 450, 975, 'admin', 5),
+(37, 19, '21/05/2023', '027.2/033/10.2.01.08.2.174/KPA-JLN/PUPR/2023', '10.2.01.08.2.174', 'Jalan Walahar - ABC Kecamatan Klari', 'CV. HADE KARYA PRADANA', 'Vikram', 'Pekerjaan Hotmix Non Ampar', 'Pemeriksaan Bahan', 1, 'Sample', '300.000', 300, 820, 'admin', 5),
+(38, 19, '21/05/2023', '027.2/033/10.2.01.08.2.174/KPA-JLN/PUPR/2023', '10.2.01.08.2.174', 'Jalan Walahar - ABC Kecamatan Klari', 'CV. HADE KARYA PRADANA', 'Vikram', 'Pekerjaan Hotmix Non Ampar', 'Pemeriksaan Kadar Aspal ', 1, 'Kali', '320.000', 320, 820, 'admin', 5),
+(39, 19, '21/05/2023', '027.2/033/10.2.01.08.2.174/KPA-JLN/PUPR/2023', '10.2.01.08.2.174', 'Jalan Walahar - ABC Kecamatan Klari', 'CV. HADE KARYA PRADANA', 'Vikram', 'Pekerjaan Hotmix Non Ampar', 'Pemeriksaan Core Drill', 4, 'Titik', '50.000', 200, 820, 'admin', 5),
+(40, 20, '21/05/2023', '027.2/032/10.2.01.08.2.5/KPA-JLN/PUPR/2023', '10.2.01.08.2.5', 'Jalan Batujaya - Segarjaya Desa Batu Raden Kecamatan Batujaya', 'CV. HADE KARYA PRADANA', 'Vikram', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Bahan ', 1, 'Sample', '300.000', 300, 975, 'admin', 5),
+(41, 20, '21/05/2023', '027.2/032/10.2.01.08.2.5/KPA-JLN/PUPR/2023', '10.2.01.08.2.5', 'Jalan Batujaya - Segarjaya Desa Batu Raden Kecamatan Batujaya', 'CV. HADE KARYA PRADANA', 'Vikram', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Kepadatan ', 2, 'Kali', '50.000', 100, 975, 'admin', 5),
+(42, 20, '21/05/2023', '027.2/032/10.2.01.08.2.5/KPA-JLN/PUPR/2023', '10.2.01.08.2.5', 'Jalan Batujaya - Segarjaya Desa Batu Raden Kecamatan Batujaya', 'CV. HADE KARYA PRADANA', 'Vikram', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Slump', 1, 'kali', '50.000', 50, 975, 'admin', 5),
+(43, 20, '21/05/2023', '027.2/032/10.2.01.08.2.5/KPA-JLN/PUPR/2023', '10.2.01.08.2.5', 'Jalan Batujaya - Segarjaya Desa Batu Raden Kecamatan Batujaya', 'CV. HADE KARYA PRADANA', 'Vikram', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Kuat Tekan Beton ', 3, 'buah', '25.000', 75, 975, 'admin', 5),
+(44, 20, '21/05/2023', '027.2/032/10.2.01.08.2.5/KPA-JLN/PUPR/2023', '10.2.01.08.2.5', 'Jalan Batujaya - Segarjaya Desa Batu Raden Kecamatan Batujaya', 'CV. HADE KARYA PRADANA', 'Vikram', 'Pekerjaan Beton Non Ampar', 'Pemeriksaan Coredrill ', 3, 'Titik', '150.000', 450, 975, 'admin', 5),
+(45, 21, '21/05/2023', '027.2/036/10.2.01.08.2.161/KPA-JLN/PUPR/2023', '10.2.01.08.2.161', 'Jalan Kopel - Walahar Kecamatan Klari ', 'CV. INKA ANUGERAH SEDAYA', 'Vikram', 'Pekerjaan Hotmix Non Ampar', 'Pemeriksaan Bahan', 1, 'Sample', '300.000', 300, 820, 'admin', 5),
+(46, 21, '21/05/2023', '027.2/036/10.2.01.08.2.161/KPA-JLN/PUPR/2023', '10.2.01.08.2.161', 'Jalan Kopel - Walahar Kecamatan Klari ', 'CV. INKA ANUGERAH SEDAYA', 'Vikram', 'Pekerjaan Hotmix Non Ampar', 'Pemeriksaan Kadar Aspal ', 1, 'Kali', '320.000', 320, 820, 'admin', 5),
+(47, 21, '21/05/2023', '027.2/036/10.2.01.08.2.161/KPA-JLN/PUPR/2023', '10.2.01.08.2.161', 'Jalan Kopel - Walahar Kecamatan Klari ', 'CV. INKA ANUGERAH SEDAYA', 'Vikram', 'Pekerjaan Hotmix Non Ampar', 'Pemeriksaan Core Drill', 4, 'Titik', '50.000', 200, 820, 'admin', 5),
+(48, 22, '21/05/2023', '027.2/037/10.2.01.08.2.144/KPA-JLN/PUPR/2023', '10.2.01.08.2.144', 'Jalan RW. 037 Kelurahan Nagasari Kecamatan Karawang Barat', 'CV. INKA ANUGERAH SEDAYA', 'Vikram', 'Pekerjaan Hotmix Non Ampar', 'Pemeriksaan Bahan', 1, 'Sample', '300.000', 300, 920, 'admin', 5),
+(49, 22, '21/05/2023', '027.2/037/10.2.01.08.2.144/KPA-JLN/PUPR/2023', '10.2.01.08.2.144', 'Jalan RW. 037 Kelurahan Nagasari Kecamatan Karawang Barat', 'CV. INKA ANUGERAH SEDAYA', 'Vikram', 'Pekerjaan Hotmix Non Ampar', 'Pemeriksaan Kadar Aspal ', 1, 'Kali', '320.000', 320, 920, 'admin', 5),
+(50, 22, '21/05/2023', '027.2/037/10.2.01.08.2.144/KPA-JLN/PUPR/2023', '10.2.01.08.2.144', 'Jalan RW. 037 Kelurahan Nagasari Kecamatan Karawang Barat', 'CV. INKA ANUGERAH SEDAYA', 'Vikram', 'Pekerjaan Hotmix Non Ampar', 'Pemeriksaan Core Drill', 6, 'Titik', '50.000', 300, 920, 'admin', 5);
 
 -- --------------------------------------------------------
 
@@ -1054,7 +1098,7 @@ ALTER TABLE `laporan_kegiatan`
 -- AUTO_INCREMENT for table `pad`
 --
 ALTER TABLE `pad`
-  MODIFY `id_pad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_pad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `user`
