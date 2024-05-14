@@ -33,6 +33,16 @@ class Database_pad extends CI_Controller {
 		}
 	}
 
+	public function save_pad()
+	{
+		if($this->session->userdata('user_id')!=null){
+			
+		}else{
+			redirect(base_url('Landing/index'));
+		}
+	}
+
+
 	public function DB_PAD()
 	{
 		if($this->session->userdata('user_id')!=null){
