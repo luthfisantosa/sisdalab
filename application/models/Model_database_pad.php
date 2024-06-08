@@ -7,13 +7,18 @@ class Model_database_pad extends CI_Model {
         parent::__construct();
     }
 
+    public function getData() {
+        $query = $this->db->get('pad'); // replace 'your_table' with your actual table name
+        return $query->result();
+    }
+
     public function get_data($table, $where = null)
     {
         if($where != null){
             $this->db->where($where);
         }else{
             $query = $this->db->get('pad');
-            $this->db->order_by("id_pad", "asc");
+            $this->db->order_by("id_pad", "desc");
             return $query->result(); // Return result as an array of objects
         }        
     }
@@ -31,5 +36,14 @@ class Model_database_pad extends CI_Model {
             // No rows found
             return null;
         }
+    }
+
+    public function summarize_columns($id) {
+        $query = $this->db->query("SELECT SUM(jumlah_rp) as jumlah_rp FROM pad WHERE no_pad=$id");
+        return $query->row();
+    }
+
+    public function save($data) {
+        return $this->db->insert('pad', $data);
     }
 }

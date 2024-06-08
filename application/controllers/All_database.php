@@ -29,5 +29,9 @@ class All_database extends CI_Controller {
 		}
 	}
 
+	public function fetchData() {
+        $data = $this->Model_All_database->get_inner();
+        echo json_encode(['data' => $data]);
+    }
 	
 }

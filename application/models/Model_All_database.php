@@ -25,11 +25,11 @@ class Model_All_database extends CI_Model {
             $this->db->where($where);
         }else{
             $query = $this->db->query("
-                SELECT laporan_kegiatan.no_reg, laporan_kegiatan.kode_rekening, laporan_kegiatan.cv, laporan_kegiatan.nama_kegiatan, pad.rekening, laporan_kegiatan.jenis_pekerjaan, pad.harga, pad.jumlah, pad.total
+                SELECT laporan_kegiatan.no_reg, laporan_kegiatan.kode_rekening, laporan_kegiatan.cv, laporan_kegiatan.nama_kegiatan, pad.pemborong pad.rekening, laporan_kegiatan.jenis_pekerjaan, pad.harga, pad.jumlah, pad.total
                 FROM laporan_kegiatan
                 LEFT JOIN pad on laporan_kegiatan.kode_rekening = pad.rekening
                 UNION
-                SELECT laporan_kegiatan.no_reg, laporan_kegiatan.kode_rekening, laporan_kegiatan.cv, laporan_kegiatan.nama_kegiatan, pad.rekening, laporan_kegiatan.jenis_pekerjaan, pad.harga, pad.jumlah, pad.total
+                SELECT laporan_kegiatan.no_reg, laporan_kegiatan.kode_rekening, laporan_kegiatan.cv, laporan_kegiatan.nama_kegiatan, pad.pemborong pad.rekening, laporan_kegiatan.jenis_pekerjaan, pad.harga, pad.jumlah, pad.total
                 FROM laporan_kegiatan
                 RIGHT JOIN pad on laporan_kegiatan.kode_rekening = pad.rekening
 
@@ -41,7 +41,26 @@ class Model_All_database extends CI_Model {
     public function get_inner()
     {
         $query = $this->db->query("
-                SELECT laporan_kegiatan.no_reg, laporan_kegiatan.kode_rekening, laporan_kegiatan.cv, laporan_kegiatan.nama_kegiatan, pad.rekening, laporan_kegiatan.jenis_pekerjaan, pad.harga, pad.jumlah, pad.total, pad.jumlah_rp, laporan_kegiatan.tanggal_dibuat, pad.tanggal
+                SELECT 
+                laporan_kegiatan.no_reg, 
+                laporan_kegiatan.kode_rekening,
+                laporan_kegiatan.nama_kegiatan, 
+                laporan_kegiatan.nama_lokasi, 
+                laporan_kegiatan.cv, 
+                laporan_kegiatan.nama_kegiatan, 
+                pad.id_pad, 
+                pad.no_pad, 
+                pad.pemborong, 
+                pad.rekening, 
+                laporan_kegiatan.jenis_pekerjaan, 
+                pad.harga, 
+                pad.jumlah, 
+                pad.total, 
+                pad.jumlah_rp, 
+                pad.jenis_pengujian, 
+                pad.uraian_pengujian, 
+                laporan_kegiatan.tanggal_dibuat, 
+                pad.tanggal
                 FROM laporan_kegiatan
                 LEFT JOIN pad on laporan_kegiatan.kode_rekening = pad.rekening
                 ");

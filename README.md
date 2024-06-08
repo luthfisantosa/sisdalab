@@ -1,2 +1,2 @@
 # sisdalab
-Sistem Aplikasi Database Lab PUOR
+Sistem Aplikasi Database Lab PUPR

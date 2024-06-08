@@ -17,11 +17,11 @@
                                 </div>
                                 <div class="form-group mt-1">
                                     <label>No Registrasi</label><small class="text-danger">*</small>
-                                    <input type="text" name="no_registrasi" id="_no_registrasi" class="form-control form-control-sm" placeholder="Nomor registrasi" value="<?= $last_num; ?>" readonly />
+                                    <input type="text" name="no_registrasi" id="_no_registrasi" class="form-control form-control-sm" placeholder="Nomor Registrasi" value="<?= $last_num; ?>" readonly />
                                 </div>
                                 <div class="form-group mt-1">
                                     <label>No Laporan</label><small class="text-danger">*</small>
-                                    <input type="text" name="no_laporan" id="_no_laporan" class="form-control form-control-sm" placeholder="Nomor laporan" value="600.2.14.2" />
+                                    <input type="text" name="no_laporan" id="_no_laporan" class="form-control form-control-sm" placeholder="Nomor Laporan" value="" />
                                 </div>
                                 <div class="form-group mt-1">
                                     <label>Wilayah</label><small class="text-danger">*</small>
@@ -53,23 +53,23 @@
                                 </div>
                                 <div class="form-group mt-1">
                                     <label>Nama Kegiatan</label><small class="text-danger">*</small>
-                                    <input type="text" name="nama_kegiatan" id="_kegiatan" class="form-control form-control-sm" placeholder="kegiatan" value="" required />
+                                    <input type="text" name="nama_kegiatan" id="_kegiatan" class="form-control form-control-sm" placeholder="Kegiatan" value="" required />
                                 </div>
                                 <div class="form-group mt-1">
                                     <label>Nama Lokasi</label><small class="text-danger">*</small>
-                                    <input type="text" name="nama_lokasi" id="_lokasi" class="form-control form-control-sm" placeholder="lokasi" value="" required />
+                                    <input type="text" name="nama_lokasi" id="_lokasi" class="form-control form-control-sm" placeholder="Lokasi" value="" required />
                                 </div>
                                 <div class="form-group mt-1">
                                     <label>CV/PT</label><small class="text-danger">*</small>
-                                    <input type="text" name="cv" id="_cv" class="form-control form-control-sm" placeholder="cv" value="" required />
+                                    <input type="text" name="cv" id="_cv" class="form-control form-control-sm" placeholder="Penyedia Jasa" value="" required />
                                 </div>
                                 <div class="form-group mt-1">
                                     <label>Pemborong</label><small class="text-danger">*</small>
-                                    <input type="text" name="nama_pemborong" id="_pemborong" class="form-control form-control-sm" placeholder="pemborong" value="" required />
+                                    <input type="text" name="nama_pemborong" id="_pemborong" class="form-control form-control-sm" placeholder="Pemborong" value="" required />
                                 </div>
                                 <div class="form-group mt-1">
                                     <label>Jenis Pekerjaan</label><small class="text-danger">*</small>
-                                    <input type="text" name="jenis_pekerjaan" id="_jenis_pekerjaan" class="form-control form-control-sm" placeholder="jenis pekerjaan" value="" required />
+                                    <input type="text" name="jenis_pekerjaan" id="_jenis_pekerjaan" class="form-control form-control-sm" placeholder="Jenis Pekerjaan" value="" required />
                                 </div>
                                 <div class="form-group mt-1">
                                     <input type="submit" id="_submit" class="btn btn-sm btn-primary float-right" value="Simpan" />

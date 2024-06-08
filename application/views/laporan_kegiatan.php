@@ -21,11 +21,12 @@
 						<table id="table_kegiatan" class="table table-bordered table-striped display" style="width:100%">
 							<thead>
 								<tr>
-									<th>No PAD</th>
+									<th>No Reg</th>
 									<th>Tanggal Dibuat</th>
 									<th>No Laporan</th>
 									<th>Kode Rekening</th>
 									<th>Nama Kegiatan</th>
+									<th>Nama Lokasi</th>
 									<th>CV</th>
 									<th>Jenis Pekerjaan</th>
 									<th>Tipe</th>
@@ -54,6 +55,9 @@
 										</td>
 										<td>
 											<?= $dt->nama_kegiatan; ?>
+										</td>
+										<td>
+											<?= $dt->nama_lokasi; ?>
 										</td>
 										<td>
 											<?= $dt->cv; ?>
